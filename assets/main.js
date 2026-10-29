@@ -109,9 +109,21 @@ const CONTACTO = {
     el.addEventListener("click", () => setDrawer(false))
   );
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+    if (!drawer.classList.contains("is-open")) return;
+    if (e.key === "Escape") {
       setDrawer(false);
       menuOpen.focus();
+    } else if (e.key === "Tab") {
+      const focusables = [...drawer.querySelectorAll("a, button")];
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
   window.matchMedia("(min-width: 761px)").addEventListener("change", (m) => m.matches && setDrawer(false));
@@ -193,7 +205,9 @@ const CONTACTO = {
     const btn = document.createElement("button");
     btn.className = "reel__play";
     btn.type = "button";
+    btn.dataset.title = title;
     btn.setAttribute("aria-label", `Ver video completo: ${title}`);
+    if (reel.getAttribute("aria-hidden") === "true") btn.tabIndex = -1;
     btn.innerHTML = "<span></span>";
     btn.addEventListener("click", () => openVideo(id, title));
     reel.querySelector(".reel__phone").appendChild(btn);
@@ -228,6 +242,9 @@ const CONTACTO = {
     document.title = en ? dict[esTitle] || esTitle : esTitle;
     if (metaDesc) metaDesc.content = en ? dict[esDesc] || esDesc : esDesc;
     setWhatsApp(en ? window.I18N_EN_WA || CONTACTO.mensaje : CONTACTO.mensaje);
+    document.querySelectorAll(".reel__play").forEach((b) =>
+      b.setAttribute("aria-label", `${en ? "Watch full video" : "Ver video completo"}: ${b.dataset.title}`)
+    );
     if (langBtn) langBtn.querySelectorAll("[data-lang]").forEach((s) => s.classList.toggle("is-on", s.dataset.lang === lang));
     try { localStorage.setItem("rh-lang", lang); } catch (e) {}
     fitWord();
@@ -239,5 +256,11 @@ const CONTACTO = {
   const browser = ((navigator.languages && navigator.languages[0]) || navigator.language || "es").toLowerCase();
   const initial = fromUrl === "en" || fromUrl === "es" ? fromUrl : saved || (browser.startsWith("es") ? "es" : "en");
   setLang(initial);
-  if (langBtn) langBtn.addEventListener("click", () => setLang(document.documentElement.lang === "en" ? "es" : "en"));
+  if (langBtn) langBtn.addEventListener("click", () => {
+    const lang = document.documentElement.lang === "en" ? "es" : "en";
+    setLang(lang);
+    const url = new URL(location.href);
+    url.searchParams.set("lang", lang);
+    history.replaceState(null, "", url);
+  });
 })();
