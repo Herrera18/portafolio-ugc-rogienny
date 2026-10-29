@@ -239,7 +239,10 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
 /* Cinta de marcas: fila clara y quieta en pantallas grandes; en el celular se desliza */
 .brands {
-  background: var(--crema);
+  background:
+    linear-gradient(112deg, transparent 30%, rgba(255, 255, 255, .45) 45%, transparent 60%),
+    radial-gradient(60% 120% at 100% 0%, rgba(202, 161, 131, .14), transparent 60%),
+    var(--crema);
   border-top: 1px solid rgba(169, 119, 79, .16);
   padding: clamp(30px, 4vw, 44px) var(--gutter);
   overflow: hidden;
@@ -493,7 +496,20 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .band__card p { margin: 0; font-size: 14.5px; line-height: 1.75; max-width: 20ch; }
 
 /* Servicios: dos columnas con divisor central */
-.services { background: var(--crema); }
+.services {
+  background:
+    linear-gradient(118deg, transparent 30%, rgba(255, 255, 255, .4) 42%, transparent 54%),
+    linear-gradient(140deg, transparent 55%, rgba(255, 255, 255, .28) 65%, transparent 75%),
+    radial-gradient(70% 60% at 100% 100%, rgba(202, 161, 131, .16), transparent 60%),
+    var(--crema);
+}
+.about {
+  background:
+    linear-gradient(118deg, transparent 30%, rgba(255, 255, 255, .4) 42%, transparent 54%),
+    linear-gradient(140deg, transparent 55%, rgba(255, 255, 255, .28) 65%, transparent 75%),
+    radial-gradient(70% 60% at 0% 0%, rgba(202, 161, 131, .16), transparent 60%),
+    var(--crema);
+}
 .services__cols { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: stretch; }
 .services__head {
   display: flex; align-items: center; gap: 18px;
@@ -507,8 +523,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 .services__head::before, .services__head::after { content: ""; flex: 1; height: 1px; background: rgba(169, 119, 79, .5); }
 .services__divider { position: relative; display: flex; justify-content: center; }
-.services__divider::before { content: ""; width: 1px; height: 100%; background: linear-gradient(transparent, rgba(169, 119, 79, .55) 15%, rgba(169, 119, 79, .55) 85%, transparent); }
-.services__divider span { position: absolute; top: 50%; translate: 0 -50%; color: var(--caramelo-oscuro); background: var(--crema); padding: 8px 0; font-size: 18px; line-height: 1; }
+.services__divider::before { content: ""; width: 1px; height: 100%; background: linear-gradient(transparent, rgba(169, 119, 79, .55) 15%, rgba(169, 119, 79, .55) calc(50% - 18px), transparent calc(50% - 18px), transparent calc(50% + 18px), rgba(169, 119, 79, .55) calc(50% + 18px), rgba(169, 119, 79, .55) 85%, transparent); }
+.services__divider span { position: absolute; top: 50%; translate: 0 -50%; color: var(--caramelo-oscuro); padding: 8px 0; font-size: 18px; line-height: 1; }
 .svc-list { display: grid; gap: clamp(20px, 2.4vw, 30px); }
 .svc { display: grid; grid-template-columns: 58px 1fr; gap: 20px; align-items: start; }
 .svc__icon {
