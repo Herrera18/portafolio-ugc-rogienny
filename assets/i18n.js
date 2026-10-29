@@ -111,7 +111,6 @@ window.I18N_EN = {
   "Cuéntame qué producto quieres mostrar y te envío una propuesta a la medida.":
     "Tell me which product you want to showcase and I'll send you a tailored proposal.",
   "Videos y fotos UGC que se sienten reales y venden como un anuncio.": "UGC videos and photos that feel real and sell like an ad.",
-  "Marcas de Latinoamérica y EE.UU.": "Brands across Latin America & the US",
   "Sitio por": "Site by",
   "Cerrar video": "Close video",
 };

@@ -85,11 +85,6 @@ const CONTACTO = {
     });
     document.querySelectorAll(".js-email-li").forEach((el) => (el.hidden = false));
   }
-  // Número visible en el pie: +58 412-642-4915
-  const n = CONTACTO.whatsapp;
-  document.querySelectorAll(".js-wa-text span").forEach((el) => {
-    el.textContent = `+${n.slice(0, 2)} ${n.slice(2, 5)}-${n.slice(5, 8)}-${n.slice(8)}`;
-  });
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("heroYear").textContent = new Date().getFullYear();
 
