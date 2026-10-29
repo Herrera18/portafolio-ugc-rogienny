@@ -794,6 +794,36 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .nav__logo { display: none; }
 }
 
+/* Servicios en celular: cada lista es un carrusel que se desliza con el dedo */
+@media (max-width: 760px) {
+  .services__cols { gap: 36px; }
+  .services__col { min-width: 0; }
+  .services__head { font-size: 19px; letter-spacing: .12em; gap: 12px; }
+  .svc-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 4px var(--gutter) 10px;
+    scroll-padding: 0 var(--gutter);
+  }
+  .svc-list::-webkit-scrollbar { display: none; }
+  .svc {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 22px 20px;
+    background: #fbf6f1;
+    border: 1px solid rgba(169, 119, 79, .22);
+    border-radius: 18px;
+  }
+  .svc h4 { margin-top: 0; }
+  .services__head { margin-bottom: 20px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee__track { animation-duration: 120s; }
