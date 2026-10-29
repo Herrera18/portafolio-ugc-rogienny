@@ -239,10 +239,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
 /* Cinta de marcas: fila clara y quieta en pantallas grandes; en el celular se desliza */
 .brands {
-  background:
-    linear-gradient(112deg, transparent 30%, rgba(255, 255, 255, .45) 45%, transparent 60%),
-    radial-gradient(60% 120% at 100% 0%, rgba(202, 161, 131, .14), transparent 60%),
-    var(--crema);
+  background: var(--crema);
   border-top: 1px solid rgba(169, 119, 79, .16);
   padding: clamp(30px, 4vw, 44px) var(--gutter);
   overflow: hidden;
@@ -503,13 +500,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
     radial-gradient(70% 60% at 100% 100%, rgba(202, 161, 131, .16), transparent 60%),
     var(--crema);
 }
-.about {
-  background:
-    linear-gradient(118deg, transparent 30%, rgba(255, 255, 255, .4) 42%, transparent 54%),
-    linear-gradient(140deg, transparent 55%, rgba(255, 255, 255, .28) 65%, transparent 75%),
-    radial-gradient(70% 60% at 0% 0%, rgba(202, 161, 131, .16), transparent 60%),
-    var(--crema);
-}
+.about { background: var(--crema); }
 .services__cols { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: stretch; }
 .services__head {
   display: flex; align-items: center; gap: 18px;
