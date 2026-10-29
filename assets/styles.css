@@ -255,13 +255,42 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 /* Videos */
 .videos { background: var(--vino); color: var(--crema); }
 .videos .title { color: var(--caramelo); }
+.row-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+.row-head__kicker { font-size: 12px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--caramelo-claro); margin-bottom: 6px; }
+.row-head__title {
+  font-family: var(--display);
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--caramelo);
+  display: flex; align-items: center; gap: 14px;
+}
+.row-head__title span { font-family: var(--body); font-size: .38em; color: var(--caramelo); }
+.row-head__link {
+  font-size: 13px; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--caramelo-claro);
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 12px;
+  padding-bottom: 8px;
+  transition: color .2s, gap .2s;
+}
+.row-head__link span { font-size: 18px; letter-spacing: 0; }
+.row-head__link:hover { color: var(--crema); gap: 16px; }
 .reels {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: clamp(22px, 3vw, 40px) clamp(16px, 2.4vw, 32px);
 }
-.reel { width: calc((100% - 3 * clamp(16px, 2.4vw, 32px)) / 4); text-align: center; }
+.reel { width: calc((100% - 3 * clamp(16px, 2.4vw, 32px)) / 4); text-align: left; }
 .reel__phone {
   position: relative;
   aspect-ratio: 9 / 16;
@@ -276,6 +305,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .reel__phone video { width: 100%; height: 100%; object-fit: cover; border-radius: 22px; background: #1c0505; }
 .reel:hover .reel__phone { transform: translateY(-6px); }
 .reel__brand { font-family: var(--display); font-size: 24px; line-height: 1.1; color: var(--caramelo); margin-bottom: 4px; }
+.reel__brand, .reel__type { padding-left: 4px; }
 .reel__type { font-size: 13px; color: var(--caramelo-claro); opacity: .8; margin: 0; }
 
 .reel__play {
