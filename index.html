@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.remove("no-js")</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rogienny Herrera · Creadora UGC</title>
+  <meta name="description" content="Creadora UGC de belleza, cabello y lifestyle. Videos y fotos que se sienten como la recomendación de una amiga y venden como un anuncio.">
+  <meta name="theme-color" content="#410101">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rogienny Herrera · Creadora UGC">
+  <meta property="og:description" content="Videos y fotos UGC de belleza, cabello y lifestyle para marcas.">
+  <meta property="og:image" content="/media/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/media/marca/favicon.png">
+  <link rel="apple-touch-icon" href="/media/marca/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/Dastin.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<!--
+  DATOS DE CONTACTO: se cambian en un solo lugar, al final de assets/main.js (objeto CONTACTO).
+  VIDEOS DE YOUTUBE: en cada tarjeta de video, pon el ID en data-youtube="..." (ver README).
+-->
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#inicio" aria-label="Rogienny Herrera, inicio">
+    <img src="/media/marca/mono-caramelo.png" alt="" width="400" height="320">
+  </a>
+  <nav class="nav__links" id="menu" aria-label="Secciones">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#videos">Videos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#fotos">Fotos</a>
+    <a class="btn btn--small js-cotizar" href="#contacto">Pide tu cotización</a>
+  </nav>
+  <button class="nav__toggle" id="menuToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- 1. PORTADA -->
+  <section class="hero" id="inicio">
+    <div class="hero__ghost" aria-hidden="true">UGC</div>
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow reveal">Creadora UGC · Belleza, cabello y lifestyle</p>
+        <h1 class="hero__title reveal">
+          <span class="hero__name">Rogienny</span>
+          <span class="hero__last">Herrera</span>
+        </h1>
+        <p class="hero__lead reveal">Creo videos y fotos que se sienten como la recomendación de una amiga y venden como un anuncio.</p>
+        <div class="hero__actions reveal">
+          <a class="btn js-cotizar" href="#contacto">Pide tu cotización</a>
+          <a class="btn btn--ghost" href="#videos">Ver mis videos</a>
+        </div>
+        <ul class="socials reveal" aria-label="Redes sociales">
+          <li><a class="js-ig" data-handle="rhrogienny" href="#">@rhrogienny</a></li>
+          <li><a class="js-ig" data-handle="rogi_ugc" href="#">@rogi_ugc</a></li>
+          <li><a class="js-tt" data-handle="rogiherrera" href="#">TikTok @rogiherrera</a></li>
+        </ul>
+      </div>
+      <figure class="hero__photo">
+        <div class="hero__arch" aria-hidden="true"></div>
+        <img src="/media/fotos/hero.webp" alt="Rogienny Herrera, con el cabello rojo, apoyando el mentón en sus manos" width="1001" height="1345" fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2. CINTA DE MARCAS -->
+  <section class="brands" aria-labelledby="brandsTitle">
+    <h2 class="brands__title" id="brandsTitle">Marcas con las que he trabajado</h2>
+    <div class="marquee">
+      <div class="marquee__track">
+        <ul class="marquee__list">
+          <li>Kérastase</li><li>Redken</li><li>Olaplex</li><li>L'Oréal Professionnel</li><li>Estée Lauder</li>
+        </ul>
+        <ul class="marquee__list" aria-hidden="true">
+          <li>Kérastase</li><li>Redken</li><li>Olaplex</li><li>L'Oréal Professionnel</li><li>Estée Lauder</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SOBRE MÍ -->
+  <section class="about section" id="sobre-mi">
+    <div class="wrap about__grid">
+      <figure class="about__photo reveal">
+        <div class="about__arch" aria-hidden="true"></div>
+        <img src="/media/fotos/te.webp" alt="Rogienny tomando una taza de té, con lentes de sol" width="781" height="788" loading="lazy">
+      </figure>
+      <div class="about__text">
+        <p class="eyebrow eyebrow--dark reveal">Sobre mí</p>
+        <h2 class="title reveal">Hola, soy <em>Rogienny</em></h2>
+        <p class="reveal">Transformo productos en historias reales. No se trata solo de un video bonito: se trata de mostrar la emoción de usar algo por primera vez y el antes y el después de verdad.</p>
+        <p class="reveal">Mi cabello rojo es la prueba visible de lo que recomiendo. Trabajo con una estética de lujo accesible, para que tu marca se vea premium sin dejar de sentirse cercana.</p>
+        <img class="about__sign reveal" src="/media/marca/logo-vino.png" alt="Rogienny Herrera" width="900" height="700" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. VIDEOS -->
+  <section class="videos section" id="videos">
+    <div class="wrap">
+      <header class="section__head reveal">
+        <p class="eyebrow">Portafolio</p>
+        <h2 class="title">Videos UGC</h2>
+        <p class="section__intro">Contenido vertical listo para anuncios, redes y tienda online.</p>
+      </header>
+      <ul class="reels">
+        <!-- data-youtube: ID del video en YouTube (ej. en youtu.be/aqz-KE-bpKQ el ID es aqz-KE-bpKQ). Vacío = sin botón de play. -->
+        <li class="reel reveal" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/tienda.mp4" poster="/media/videos/tienda.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Reseña en tienda</p><p class="reel__type">Cuidado capilar</p>
+        </li>
+        <li class="reel reveal" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/kerastase.mp4" poster="/media/videos/kerastase.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Kérastase</p><p class="reel__type">Rutina capilar</p>
+        </li>
+        <li class="reel reveal" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/color.mp4" poster="/media/videos/color.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Color rojo</p><p class="reel__type">Resultado real</p>
+        </li>
+        <li class="reel reveal" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/olaplex.mp4" poster="/media/videos/olaplex.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Olaplex · L'Oréal Pro</p><p class="reel__type">Recomendación</p>
+        </li>
+        <li class="reel reveal" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/redken.mp4" poster="/media/videos/redken.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Redken</p><p class="reel__type">Demostración de producto</p>
+        </li>
+        <li class="reel reveal" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/unboxing.mp4" poster="/media/videos/unboxing.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Unboxing</p><p class="reel__type">Primera impresión</p>
+        </li>
+        <li class="reel reveal" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/estee-lauder.mp4" poster="/media/videos/estee-lauder.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Estée Lauder</p><p class="reel__type">Skincare y maquillaje</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. PILARES -->
+  <section class="pillars section">
+    <div class="wrap">
+      <header class="section__head section__head--dark reveal">
+        <p class="eyebrow eyebrow--dark">¿Por qué yo?</p>
+        <h2 class="title">Mis tres pilares</h2>
+      </header>
+      <ol class="pillars__list">
+        <li class="pillar reveal">
+          <span class="pillar__num">01</span>
+          <h3>Cuidado capilar y color</h3>
+          <p>Tutoriales, reseñas de tratamientos y resultados reales de antes y después. Mi cabello rojo es la prueba social de que el producto funciona.</p>
+        </li>
+        <li class="pillar reveal">
+          <span class="pillar__num">02</span>
+          <h3>Skincare y maquillaje</h3>
+          <p>Unboxing, GRWM y testimonios sinceros que muestran los beneficios de tu fórmula en la piel, sin exagerar.</p>
+        </li>
+        <li class="pillar reveal">
+          <span class="pillar__num">03</span>
+          <h3>Lifestyle y viajes</h3>
+          <p>Integro tu producto en la vida diaria y en viajes, con un aire aspiracional que se siente natural.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. SERVICIOS -->
+  <section class="services section" id="servicios">
+    <div class="wrap services__grid">
+      <div class="services__intro reveal">
+        <p class="eyebrow eyebrow--dark">Servicios</p>
+        <h2 class="title">Lo que hago por tu marca</h2>
+        <div class="ugc-note">
+          <h3>¿Qué es UGC?</h3>
+          <p>Es contenido creado por personas reales, no por la marca. Se siente auténtico, genera confianza y por eso convierte mejor que un anuncio tradicional.</p>
+        </div>
+      </div>
+      <ul class="services__list">
+        <li class="service reveal">
+          <h3>Fotos y videos UGC</h3>
+          <p>Contenido vertical para anuncios, redes y tienda online, en belleza, cabello, skincare y lifestyle.</p>
+        </li>
+        <li class="service reveal">
+          <h3>Guiones para videos</h3>
+          <p>Gancho, estructura y llamado a la acción pensados para que tu contenido funcione en redes.</p>
+        </li>
+        <li class="service reveal">
+          <h3>Cursos UGC</h3>
+          <p>Capacitación online para quienes quieren empezar como creadoras UGC.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap">
+      <ol class="steps reveal" aria-label="Cómo trabajamos">
+        <li><span>1</span>Me escribes y me cuentas de tu marca</li>
+        <li><span>2</span>Te envío una propuesta y cotización</li>
+        <li><span>3</span>Grabo y edito el contenido</li>
+        <li><span>4</span>Te entrego los archivos listos para publicar</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 7. FOTOS -->
+  <section class="photos section" id="fotos">
+    <div class="wrap">
+      <header class="section__head section__head--dark reveal">
+        <p class="eyebrow eyebrow--dark">Galería</p>
+        <h2 class="title">Fotos</h2>
+      </header>
+      <div class="gallery">
+        <img class="reveal" src="/media/fotos/estudio-1.webp" alt="Rogienny sentada en un taburete, sesión de estudio" width="1024" height="1280" loading="lazy">
+        <img class="reveal gallery__cut" src="/media/fotos/brazos.webp" alt="Rogienny con los brazos arriba y lentes de sol" width="748" height="1045" loading="lazy">
+        <img class="reveal" src="/media/fotos/estudio-2.webp" alt="Rogienny sonriendo de perfil, sesión de estudio" width="1024" height="1280" loading="lazy">
+        <img class="reveal" src="/media/fotos/estudio-3.webp" alt="Rogienny posando con la mano en el cuello, sesión de estudio" width="1024" height="1280" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONTACTO -->
+  <section class="contact" id="contacto">
+    <div class="wrap contact__inner">
+      <img class="contact__mono reveal" src="/media/marca/mono-caramelo.png" alt="" width="400" height="320" loading="lazy">
+      <h2 class="contact__title reveal">¿Creamos contenido para tu marca?</h2>
+      <p class="contact__lead reveal">Cuéntame qué producto quieres mostrar y te envío una propuesta a la medida.</p>
+      <a class="btn btn--big js-cotizar reveal" href="#">Pide tu cotización</a>
+      <p class="contact__note reveal">Te respondo por WhatsApp<span class="js-email-wrap" hidden> o en <a class="js-email" href="#"></a></span>.</p>
+      <ul class="socials socials--center reveal" aria-label="Redes sociales">
+        <li><a class="js-ig" data-handle="rhrogienny" href="#">Instagram @rhrogienny</a></li>
+        <li><a class="js-ig" data-handle="rogi_ugc" href="#">Instagram @rogi_ugc</a></li>
+        <li><a class="js-tt" data-handle="rogiherrera" href="#">TikTok @rogiherrera</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© <span id="year">2026</span> Rogienny Herrera · Creadora UGC</p>
+  <p>Sitio por <a href="https://studio-herre.vercel.app" target="_blank" rel="noopener">Studio Herre</a></p>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box" role="dialog" aria-modal="true" aria-label="Video">
+    <button class="modal__close" data-close aria-label="Cerrar video">×</button>
+    <div class="modal__frame" id="modalFrame"></div>
+  </div>
+</div>
+
+<script src="/assets/main.js" defer></script>
+</body>
+</html>
