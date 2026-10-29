@@ -217,6 +217,11 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 .hero__lead { font-size: 15px; max-width: 36ch; color: var(--texto); margin-bottom: 26px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero__social { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 26px; }
+.hero__social a { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--vino); text-decoration: none; transition: color .2s; }
+.hero__social a:hover { color: var(--borgona); }
+.hero__social i { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(65, 1, 1, .35); }
+.hero__social svg { width: 16px; height: 16px; }
 
 .socials { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
 .socials a { color: var(--caramelo-claro); text-decoration: none; border-bottom: 1px solid rgba(202, 161, 131, .35); padding-bottom: 2px; transition: color .2s, border-color .2s; }
@@ -302,6 +307,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .tools li:hover .tool__icon { transform: translateY(-3px); background: var(--vino); }
 .tool__icon b { font-family: var(--body); font-weight: 500; font-size: clamp(16px, 1.5vw, 20px); letter-spacing: 0; text-transform: none; }
 .tool__icon svg { width: 46%; height: 46%; }
+.tool__icon--app svg { width: 50%; height: 50%; }
 .about__text p { font-size: 16px; line-height: 1.85; max-width: 46ch; }
 .about__text p:first-of-type { margin-top: 0; }
 .about__text .about__sign {
@@ -644,6 +650,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .nav.is-scrolled .nav__logo .is-dark { opacity: 1; }
 .nav__logo img { width: 44px; }
 .nav .btn--small { padding: 12px 24px; }
+.cta-short { display: none; }
 
 /* Tablet */
 @media (max-width: 960px) {
@@ -665,6 +672,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 @media (max-width: 760px) {
   .hero__name { font-size: clamp(52px, 15vw, 72px); }
+  .hero__social { justify-content: center; gap: 10px 16px; }
+  .hero__social a { font-size: 12px; }
   .about__grid { grid-template-columns: 1fr; }
   .about__photo { order: -1; width: 70%; max-width: 300px; min-height: 0; aspect-ratio: 3 / 4; margin: 0 auto; }
   .about__photo img { height: 98%; }
@@ -680,7 +689,10 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 @media (max-width: 640px) {
   .contact__grid { grid-template-columns: 1fr; grid-template-areas: "title" "info" "quote" "photo"; }
   .contact__info, .contact__quote { padding-bottom: 0; }
-  .contact__q--close { top: auto; bottom: 60px; }
+  .contact__quote { margin-top: 34px; padding: 34px 0 40px; border-top: 1px solid rgba(202, 161, 131, .25); text-align: center; }
+  .contact__quote p { margin: 0 auto 26px; }
+  .contact__q { position: static; display: block; font-size: 60px; line-height: .6; height: 30px; }
+  .contact__q--close { display: none; }
 }
 
 /* Celular */
@@ -743,6 +755,34 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .nav__toggle[aria-expanded="true"] { border-color: rgba(202, 161, 131, .5); }
   .nav__toggle[aria-expanded="true"] span { background: var(--caramelo); }
   .nav.is-scrolled .nav__links a:not(.btn) { color: var(--crema); }
+}
+
+/* Menú en celular: la barra muestra las secciones y "Cotizar" (sin menú desplegable) */
+@media (max-width: 760px) {
+  .nav__toggle { display: none; }
+  .nav__links, .nav__links.is-open {
+    position: static; inset: auto;
+    flex-direction: row; justify-content: flex-end;
+    gap: clamp(8px, 3.2vw, 16px);
+    background: none;
+    opacity: 1; visibility: visible;
+  }
+  .nav__links a:not(.btn), .nav.is-scrolled .nav__links a:not(.btn) {
+    font-family: var(--body);
+    font-size: clamp(11px, 3.2vw, 13px);
+    letter-spacing: .01em;
+    color: var(--vino);
+    opacity: .9;
+  }
+  .nav__links .btn { margin-top: 0; }
+  .nav .btn--small { padding: 9px 14px; font-size: 12.5px; }
+  .cta-long { display: none; }
+  .cta-short { display: inline; }
+  .nav__logo img { width: 32px; }
+  .nav, .nav.is-scrolled { padding: 6px 6px 6px 14px; }
+}
+@media (max-width: 340px) {
+  .nav__logo { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
