@@ -404,14 +404,12 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .row-head--dark .row-head__title span { color: var(--caramelo); }
 .row-head__note { max-width: 32ch; margin: 0; padding-bottom: 6px; font-size: 15px; color: var(--texto); }
 
-.pillars { background: var(--crema); }
+.pillars { background: #f1e5da; padding: 0; }
 .band {
   display: grid;
   grid-template-columns: 34px 84px 1fr minmax(200px, 240px);
   align-items: stretch;
-  background: #f1e5da;
-  border-radius: 6px;
-  overflow: hidden;
+  min-height: clamp(320px, 30vw, 400px);
 }
 .band__label {
   writing-mode: vertical-rl;
@@ -428,7 +426,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .band__steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: clamp(28px, 3vw, 40px) clamp(16px, 2vw, 28px);
+  align-content: center;
+  padding: clamp(48px, 5vw, 72px) clamp(16px, 2vw, 28px);
   gap: clamp(18px, 2.4vw, 40px);
 }
 .band__steps li { position: relative; }
@@ -453,7 +452,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   background: var(--caramelo-oscuro);
   color: var(--crema);
   border-radius: 999px 999px 0 0;
-  margin-top: 14px;
+  margin-top: clamp(28px, 3vw, 40px);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 14px;
   padding: 44px 28px 32px;
@@ -580,6 +579,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .band__steps { grid-template-columns: 1fr; padding: 32px 24px; gap: 28px; }
   .band__steps li + li::before { display: none; }
   .band__card { grid-column: 1 / -1; margin-top: 0; border-radius: 999px 999px 0 0; }
+  .band { min-height: 0; }
   .services__grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: repeat(2, 1fr); }
 }
