@@ -747,19 +747,89 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .contact__legal { justify-content: center; text-align: center; }
 }
 
-/* Menú en celular: secciones, idioma y "Cotizar" en una sola fila */
+/* Menú lateral (se abre con el botón de tres líneas en el celular) */
+.nav__menu, .drawer { display: none; }
+.drawer {
+  position: fixed; inset: 0;
+  z-index: 80;
+  visibility: hidden;
+  transition: visibility 0s .4s;
+}
+.drawer.is-open { visibility: visible; transition: none; }
+.drawer__fondo {
+  position: absolute; inset: 0;
+  background: rgba(43, 10, 10, .45);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.drawer.is-open .drawer__fondo { opacity: 1; }
+.drawer__panel {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: min(84vw, 340px);
+  display: flex; flex-direction: column;
+  padding: 18px 22px 26px;
+  background: var(--crema);
+  box-shadow: -18px 0 40px rgba(43, 10, 10, .22);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform .4s cubic-bezier(.65, 0, .25, 1);
+}
+.drawer.is-open .drawer__panel { transform: none; }
+.drawer__head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid rgba(105, 11, 35, .14); }
+.drawer__head img { width: 38px; height: auto; }
+.drawer__close {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border: 1px solid rgba(65, 1, 1, .2); border-radius: 50%;
+  background: transparent; color: var(--vino);
+  cursor: pointer;
+}
+.drawer__close svg { width: 18px; height: 18px; }
+.drawer__links { display: flex; flex-direction: column; margin-top: 6px; }
+.drawer__links a {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 2px;
+  border-bottom: 1px solid rgba(105, 11, 35, .1);
+  color: var(--vino);
+  font-size: 16px;
+  text-decoration: none;
+}
+.drawer__links a svg { width: 21px; height: 21px; color: var(--caramelo-oscuro); flex-shrink: 0; }
+.drawer__links a:active { color: var(--borgona); }
+.drawer__social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.drawer__social a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 13px;
+  border: 1px solid rgba(169, 119, 79, .45); border-radius: 999px;
+  color: var(--vino);
+  font-size: 12.5px;
+  text-decoration: none;
+}
+.drawer__social svg { width: 15px; height: 15px; color: var(--caramelo-oscuro); }
+.no-scroll, .no-scroll body { overflow: hidden; }
+
+/* Menú en celular: logo, idioma, "Cotizar" y botón del menú lateral */
 @media (max-width: 760px) {
-  .nav { top: 10px; left: 10px; right: 10px; padding: 6px 6px 6px 12px; }
-  .nav__logo { flex-shrink: 0; margin-right: 6px; }
-  .nav__logo img { width: 26px; }
-  .nav__links { justify-content: space-between; width: 100%; gap: 3px; }
-  .nav__links a { white-space: nowrap; }
-  .nav__links a:not(.btn) { font-size: clamp(10px, 2.95vw, 13px); letter-spacing: 0; opacity: .9; }
-  .nav .btn--small { padding: 9px; font-size: 12px; }
+  .nav { top: 10px; left: 12px; right: 12px; padding: 7px 7px 7px 16px; }
+  .nav__logo { flex-shrink: 0; }
+  .nav__logo img { width: 32px; }
+  .nav__links { gap: 8px; }
+  .nav__links > a:not(.btn) { display: none; }
+  .nav .btn--small { padding: 10px 16px; font-size: 13px; }
   .cta-long { display: none; }
   .cta-short { display: inline; }
-  .lang { font-size: 10px; padding: 2px; }
-  .lang span { padding: 5px 4px; }
+  .nav__menu {
+    width: 40px; height: 40px;
+    display: grid; place-content: center; gap: 4px;
+    border: 0; border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+  }
+  .nav__menu span { display: block; width: 19px; height: 1.6px; border-radius: 2px; background: var(--vino); }
+  .drawer { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drawer, .drawer__fondo, .drawer__panel { transition: none; }
 }
 
 /* Servicios en celular: cada lista es un carrusel que se desliza con el dedo */

@@ -14,6 +14,11 @@ window.I18N_EN = {
   "Cotizar": "Quote",
   "Secciones": "Sections",
   "Rogienny Herrera, inicio": "Rogienny Herrera, home",
+  "Inicio": "Home",
+  "Contacto": "Contact",
+  "Menú": "Menu",
+  "Abrir menú": "Open menu",
+  "Cerrar menú": "Close menu",
 
   // Portada
   "Belleza · Cabello · Lifestyle": "Beauty · Hair · Lifestyle",

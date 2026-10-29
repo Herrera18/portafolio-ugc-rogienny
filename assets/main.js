@@ -99,6 +99,28 @@ const CONTACTO = {
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
+  // Menú lateral del celular
+  const drawer = document.getElementById("drawer");
+  const menuOpen = document.getElementById("menuOpen");
+  const setDrawer = (open) => {
+    drawer.classList.toggle("is-open", open);
+    drawer.setAttribute("aria-hidden", String(!open));
+    menuOpen.setAttribute("aria-expanded", String(open));
+    document.documentElement.classList.toggle("no-scroll", open);
+    if (open) drawer.querySelector(".drawer__close").focus();
+  };
+  menuOpen.addEventListener("click", () => setDrawer(true));
+  drawer.querySelectorAll("[data-close], .drawer__links a, .drawer__social a").forEach((el) =>
+    el.addEventListener("click", () => setDrawer(false))
+  );
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+      setDrawer(false);
+      menuOpen.focus();
+    }
+  });
+  window.matchMedia("(min-width: 761px)").addEventListener("change", (m) => m.matches && setDrawer(false));
+
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Animación de entrada: los grupos aparecen uno tras otro (--i marca el orden)
