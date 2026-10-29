@@ -750,16 +750,16 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
 /* Menú en celular: secciones, idioma y "Cotizar" en una sola fila */
 @media (max-width: 760px) {
-  .nav { top: 10px; left: 12px; right: 12px; padding: 6px 6px 6px 14px; }
+  .nav { top: 10px; left: 10px; right: 10px; padding: 6px 6px 6px 12px; }
   .nav__logo { display: none; }
-  .nav__links { justify-content: space-between; width: 100%; gap: 6px; }
+  .nav__links { justify-content: space-between; width: 100%; gap: 4px; }
   .nav__links a { white-space: nowrap; }
-  .nav__links a:not(.btn) { font-size: clamp(11px, 3.2vw, 13px); letter-spacing: .01em; opacity: .9; }
-  .nav .btn--small { padding: 9px 14px; font-size: 12.5px; }
+  .nav__links a:not(.btn) { font-size: clamp(10px, 2.95vw, 13px); letter-spacing: 0; opacity: .9; }
+  .nav .btn--small { padding: 9px 11px; font-size: 12px; }
   .cta-long { display: none; }
   .cta-short { display: inline; }
   .lang { font-size: 10px; padding: 2px; }
-  .lang span { padding: 5px 6px; }
+  .lang span { padding: 5px; }
 }
 
 /* Servicios en celular: cada lista es un carrusel que se desliza con el dedo */
