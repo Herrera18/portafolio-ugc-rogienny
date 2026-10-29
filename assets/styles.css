@@ -510,6 +510,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   margin-bottom: 30px;
 }
 .svc-label::after { content: ""; flex: 1; height: 1px; background: rgba(169, 119, 79, .35); }
+@media (min-width: 761px) { .svc-label::after { display: none; } }
 .svc-dots { display: none; }
 .svc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); margin-bottom: clamp(48px, 6vw, 72px); }
 .svc { display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start; }
