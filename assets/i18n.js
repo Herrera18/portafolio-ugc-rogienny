@@ -60,6 +60,7 @@ window.I18N_EN = {
 
   // Fotos UGC
   "Fotos": "Photos",
+  "Fotos UGC": "UGC Photos",
   "que venden": "that sell",
   "Fotos de producto y lifestyle para anuncios, redes y tienda online.": "Product and lifestyle photos for ads, social media and online stores.",
   "Cabello": "Hair",
@@ -110,7 +111,6 @@ window.I18N_EN = {
   "¿Creamos contenido para tu marca?": "Shall we create content for your brand?",
   "Cuéntame qué producto quieres mostrar y te envío una propuesta a la medida.":
     "Tell me which product you want to showcase and I'll send you a tailored proposal.",
-  "Rogienny de pie, con la mano en el cuello": "Rogienny standing, with her hand on her neck",
   "Sitio por": "Site by",
   "Cerrar video": "Close video",
 };
