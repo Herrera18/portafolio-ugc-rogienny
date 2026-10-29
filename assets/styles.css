@@ -45,7 +45,7 @@ p { margin: 0 0 1em; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
 
 .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.section { padding: clamp(72px, 10vw, 140px) 0; }
+.section { padding: clamp(48px, 6vw, 84px) 0; }
 
 .eyebrow {
   font-size: 12px;
@@ -352,7 +352,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   width: max-content;
   animation: reels-desliza calc(var(--piezas, 7) * 5.5s) linear infinite;
 }
-.reels-cinta:hover .reels, .reels-cinta:focus-within .reels { animation-play-state: paused; }
 @keyframes reels-desliza { to { translate: calc(-50% - var(--hueco) / 2) 0; } }
 .reel { width: clamp(190px, 21vw, 260px); flex-shrink: 0; text-align: left; }
 .reel__phone {
@@ -411,7 +410,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   align-items: stretch;
   min-height: clamp(320px, 30vw, 400px);
 }
-.pillars__head { padding-top: clamp(56px, 7vw, 96px); margin-bottom: 0; }
+.pillars__head { padding-top: clamp(48px, 6vw, 84px); margin-bottom: 0; }
 .band__branch { align-self: center; width: 84px; height: 170px; color: rgba(105, 11, 35, .55); }
 .band__steps {
   display: grid;
