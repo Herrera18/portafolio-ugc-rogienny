@@ -14,7 +14,6 @@ window.I18N_EN = {
   "Cotizar": "Quote",
   "Secciones": "Sections",
   "Rogienny Herrera, inicio": "Rogienny Herrera, home",
-  "Abrir menú": "Open menu",
 
   // Portada
   "Belleza · Cabello · Lifestyle": "Beauty · Hair · Lifestyle",
@@ -107,7 +106,6 @@ window.I18N_EN = {
   "Cuéntame qué producto quieres mostrar y te envío una propuesta a la medida.":
     "Tell me which product you want to showcase and I'll send you a tailored proposal.",
   "Rogienny de pie, con la mano en el cuello": "Rogienny standing, with her hand on her neck",
-  "Rogienny Herrera · Creadora UGC.": "Rogienny Herrera · UGC Creator.",
   "Sitio por": "Site by",
   "Cerrar video": "Close video",
 };

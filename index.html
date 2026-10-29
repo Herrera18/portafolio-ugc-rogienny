@@ -10,7 +10,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Rogienny Herrera · Creadora UGC">
   <meta property="og:description" content="Videos y fotos UGC de belleza, cabello y lifestyle para marcas.">
-  <meta property="og:image" content="/media/og.jpg">
+  <meta property="og:url" content="https://rogienny-ugc.vercel.app/">
+  <meta property="og:image" content="https://rogienny-ugc.vercel.app/media/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="/media/marca/favicon.png">
   <link rel="apple-touch-icon" href="/media/marca/apple-touch-icon.png">
@@ -23,25 +24,22 @@
 <body>
 
 <!--
-  DATOS DE CONTACTO: se cambian en un solo lugar, al final de assets/main.js (objeto CONTACTO).
+  DATOS DE CONTACTO: se cambian en un solo lugar, al inicio de assets/main.js (objeto CONTACTO).
+  TEXTOS EN INGLÉS: assets/i18n.js (ver README).
   VIDEOS DE YOUTUBE: en cada tarjeta de video, pon el ID en data-youtube="..." (ver README).
 -->
 
 <header class="nav" id="nav">
   <a class="nav__logo" href="#inicio" aria-label="Rogienny Herrera, inicio">
-    <img class="is-dark" src="/media/marca/mono-vino.png" alt="" width="400" height="321">
-    <img class="is-light" src="/media/marca/mono-caramelo.png" alt="" width="400" height="320">
+    <img src="/media/marca/mono-vino.png" alt="" width="400" height="321">
   </a>
-  <nav class="nav__links" id="menu" aria-label="Secciones">
+  <nav class="nav__links" aria-label="Secciones">
     <a href="#sobre-mi">Sobre mí</a>
     <a href="#videos">Videos</a>
     <a href="#servicios">Servicios</a>
     <button class="lang" id="langToggle" type="button" aria-label="Español / English"><span data-lang="es" class="is-on">ES</span><span data-lang="en">EN</span></button>
     <a class="btn btn--small js-cotizar" href="#contacto"><span class="cta-long">Pide tu cotización</span><span class="cta-short">Cotizar</span></a>
   </nav>
-  <button class="nav__toggle" id="menuToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
-    <span></span><span></span>
-  </button>
 </header>
 
 <main>

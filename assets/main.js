@@ -35,7 +35,7 @@ const CONTACTO = {
     reels.appendChild(copia);
   });
 
-  // Carruseles de Servicios (celular): barritas que indican la tarjeta visible
+  // Carruseles de Servicios y Fotos (celular): barritas que indican la tarjeta visible
   document.querySelectorAll(".svc-list, .photo-list").forEach((list) => {
     const items = [...list.children];
     const dots = document.createElement("div");
@@ -83,7 +83,7 @@ const CONTACTO = {
       link.href = `mailto:${CONTACTO.email}`;
       (link.querySelector("span") || link).textContent = CONTACTO.email;
     });
-    document.querySelectorAll(".js-email-wrap, .js-email-li").forEach((el) => (el.hidden = false));
+    document.querySelectorAll(".js-email-li").forEach((el) => (el.hidden = false));
   }
   // Número visible en el pie: +58 412-642-4915
   const n = CONTACTO.whatsapp;
@@ -93,22 +93,11 @@ const CONTACTO = {
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("heroYear").textContent = new Date().getFullYear();
 
-  // Menú: fondo al hacer scroll y menú de celular
+  // Menú: fondo más sólido al hacer scroll
   const nav = document.getElementById("nav");
-  const menu = document.getElementById("menu");
-  const toggle = document.getElementById("menuToggle");
   const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 40);
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
-
-  const setMenu = (open) => {
-    menu.classList.toggle("is-open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-    document.body.style.overflow = open ? "hidden" : "";
-  };
-  toggle.addEventListener("click", () => setMenu(!menu.classList.contains("is-open")));
-  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
   // Animación de entrada
   const reveal = new IntersectionObserver((entries) => {
