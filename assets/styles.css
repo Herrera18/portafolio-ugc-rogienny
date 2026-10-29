@@ -485,20 +485,68 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   margin-bottom: 16px;
 }
 
-/* Contacto */
+/* Contacto: banner con foto en arco, datos y frase */
 .contact {
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(105, 11, 35, .95), transparent 70%),
+    radial-gradient(ellipse at 80% 20%, rgba(105, 11, 35, .7), transparent 60%),
     var(--vino);
   color: var(--crema);
-  padding: clamp(88px, 12vw, 160px) 0;
-  text-align: center;
+  padding: clamp(64px, 8vw, 110px) 0 0;
+  overflow: hidden;
 }
-.contact__inner { display: flex; flex-direction: column; align-items: center; }
-.contact__mono { width: 92px; height: auto; margin-bottom: 32px; }
-.contact__title { font-family: var(--display); font-size: clamp(44px, 7vw, 92px); line-height: 1; color: var(--caramelo); max-width: 14ch; margin-bottom: 24px; }
-.contact__lead { color: var(--caramelo-claro); max-width: 44ch; font-size: 17px; margin-bottom: 36px; }
-.contact__note { font-size: 14px; color: var(--caramelo-claro); opacity: .8; margin: 18px 0 40px; }
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(240px, .9fr) 1.2fr 1px 1fr;
+  grid-template-areas: "photo info line quote";
+  gap: clamp(28px, 4vw, 60px);
+  align-items: center;
+}
+.contact__grid::before { content: ""; grid-area: line; align-self: center; width: 1px; height: 70%; background: rgba(202, 161, 131, .4); }
+.contact__photo { grid-area: photo; position: relative; margin: 0; align-self: end; }
+.contact__photo::before {
+  content: "";
+  position: absolute; inset: -14px -14px 0 -14px;
+  border: 1px solid rgba(202, 161, 131, .7);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+}
+.contact__photo img {
+  position: relative;
+  width: 100%; height: auto;
+  aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%;
+  border-radius: 999px 999px 0 0;
+}
+.contact__photo figcaption {
+  position: absolute;
+  left: -6%; bottom: 8%;
+  font-family: "Allura", cursive;
+  font-size: clamp(56px, 6vw, 84px);
+  line-height: 1;
+  color: var(--caramelo-oscuro);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+  rotate: -8deg;
+}
+.contact__info { grid-area: info; padding-bottom: clamp(40px, 5vw, 70px); }
+.contact__title {
+  font-family: var(--body);
+  font-size: clamp(16px, 1.6vw, 21px);
+  font-weight: 300;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--crema);
+  margin-bottom: 30px;
+}
+.contact__list { display: grid; gap: 14px; }
+.contact__list a { display: inline-flex; align-items: center; gap: 16px; color: var(--crema); text-decoration: none; font-size: 15px; letter-spacing: .03em; transition: color .2s; }
+.contact__list a:hover { color: var(--caramelo); }
+.contact__list i { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(202, 161, 131, .7); color: var(--caramelo); flex-shrink: 0; }
+.contact__list svg { width: 18px; height: 18px; }
+.contact__quote { grid-area: quote; position: relative; padding: 0 28px clamp(40px, 5vw, 70px); }
+.contact__quote p { font-size: clamp(16px, 1.5vw, 19px); line-height: 1.75; color: var(--crema); margin: 0 0 30px; max-width: 26ch; }
+.contact__q { position: absolute; font-family: Georgia, "Times New Roman", serif; font-size: 72px; line-height: 1; color: var(--caramelo); }
+.contact__q--open { left: -14px; top: -40px; }
+.contact__q--close { right: 4px; top: 96px; }
 
 .footer { background: #1e0606; color: var(--caramelo-claro); }
 .footer__grid {
@@ -605,6 +653,18 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .about__photo { order: -1; width: 70%; max-width: 300px; min-height: 0; aspect-ratio: 3 / 4; margin: 0 auto; }
   .about__photo img { height: 98%; }
   .tools { gap: 22px 8px; }
+}
+
+/* Contacto en tablet y celular */
+@media (max-width: 960px) {
+  .contact__grid { grid-template-columns: 1fr 1fr; grid-template-areas: "info quote" "photo photo"; }
+  .contact__grid::before { display: none; }
+  .contact__photo { max-width: 340px; width: 80%; margin: 20px auto 0; }
+}
+@media (max-width: 640px) {
+  .contact__grid { grid-template-columns: 1fr; grid-template-areas: "info" "quote" "photo"; }
+  .contact__info, .contact__quote { padding-bottom: 0; }
+  .contact__q--close { top: auto; bottom: 60px; }
 }
 
 /* Celular */
