@@ -500,18 +500,28 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .contact__lead { color: var(--caramelo-claro); max-width: 44ch; font-size: 17px; margin-bottom: 36px; }
 .contact__note { font-size: 14px; color: var(--caramelo-claro); opacity: .8; margin: 18px 0 40px; }
 
-.footer {
-  background: var(--tinta);
-  color: var(--caramelo-claro);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px 24px;
-  padding: 24px var(--gutter);
-  font-size: 13px;
+.footer { background: #1e0606; color: var(--caramelo-claro); }
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr auto;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+  padding-top: clamp(48px, 6vw, 72px);
+  padding-bottom: clamp(40px, 5vw, 56px);
 }
-.footer p { margin: 0; }
-.footer a { color: var(--caramelo); }
+.footer__claim { padding-right: clamp(28px, 4vw, 64px); border-right: 1px solid rgba(202, 161, 131, .4); align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+.footer__claim p { margin: 0 0 18px; font-family: var(--display); font-size: clamp(26px, 2.4vw, 34px); line-height: 1.15; text-transform: uppercase; color: var(--caramelo); }
+.footer__claim span { color: var(--caramelo); font-size: 22px; }
+.footer__col { padding-top: 6px; }
+.footer__col h2 { font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--caramelo); margin-bottom: 18px; }
+.footer__col ul { display: grid; gap: 12px; }
+.footer__col a { display: inline-flex; align-items: center; gap: 12px; color: var(--crema); text-decoration: none; font-size: 14px; opacity: .85; transition: opacity .2s, color .2s; }
+.footer__col a:hover { opacity: 1; color: var(--caramelo); }
+.footer__col svg { width: 18px; height: 18px; color: var(--caramelo); flex-shrink: 0; }
+.footer__mono { width: clamp(100px, 10vw, 140px); height: auto; align-self: center; }
+.footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-top: 18px; padding-bottom: 22px; border-top: 1px solid rgba(202, 161, 131, .15); font-size: 12px; opacity: .7; }
+.footer__legal p { margin: 0; }
+.footer__legal a { color: var(--caramelo); }
 
 /* Modal de YouTube */
 .modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; }
@@ -649,7 +659,10 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .steps { grid-template-columns: 1fr; gap: 10px; }
   .steps li { display: flex; align-items: center; gap: 16px; padding: 16px 18px; }
   .steps span { flex-shrink: 0; margin-bottom: 0; }
-  .footer { justify-content: center; text-align: center; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__claim { grid-column: 1 / -1; border-right: 0; padding-right: 0; border-bottom: 1px solid rgba(202, 161, 131, .3); padding-bottom: 28px; }
+  .footer__mono { display: none; }
+  .footer__legal { justify-content: center; text-align: center; }
 }
 
 /* Barra flotante en celular */
