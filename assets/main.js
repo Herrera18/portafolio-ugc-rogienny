@@ -2,7 +2,7 @@
 const CONTACTO = {
   whatsapp: "584126424915", // solo números, con código de país
   mensaje: "Hola Rogienny, quiero cotizar contenido UGC para mi marca.",
-  email: "", // pendiente: cuando lo tengas, ponlo aquí y aparece en Contacto
+  email: "rogienny31@gmail.com", // aparece en el pie de página
 };
 
 (() => {
@@ -124,7 +124,7 @@ const CONTACTO = {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Animación de entrada: los grupos aparecen uno tras otro (--i marca el orden)
-  [".hero__social", ".tools", ".photo-list", ".band__steps", ".svc-row", ".timeline", ".contact__list"].forEach((sel) => {
+  [".hero__social", ".tools", ".photo-list", ".band__steps", ".svc-row", ".timeline", ".contact__social"].forEach((sel) => {
     document.querySelectorAll(sel).forEach((group) => {
       group.classList.remove("reveal");
       group.classList.add("stagger");

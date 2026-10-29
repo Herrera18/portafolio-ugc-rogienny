@@ -554,57 +554,93 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .services__note { text-align: center; font-size: 14px; color: var(--texto); margin-top: clamp(44px, 5vw, 64px); max-width: 760px; }
 .services__note strong { font-weight: 500; color: var(--borgona); letter-spacing: .04em; }
 
-/* Contacto: saludo y título arriba; datos y frase abajo, separados por una línea */
+/* Pie: franja vino (frase + llamado), franja crema (marca, datos, redes) y línea legal */
 .contact {
   background:
     radial-gradient(ellipse at 80% 20%, rgba(105, 11, 35, .7), transparent 60%),
     var(--vino);
   color: var(--crema);
-  padding: clamp(56px, 6vw, 90px) 0 0;
-  overflow: hidden;
 }
 .contact__grid {
   display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  grid-template-areas: "head head head" "info line quote";
-  gap: 0 clamp(32px, 5vw, 80px);
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+  padding-top: clamp(56px, 6vw, 84px);
+  padding-bottom: clamp(56px, 6vw, 84px);
 }
-.contact__grid::before { content: ""; grid-area: line; align-self: stretch; width: 1px; margin-bottom: clamp(48px, 5vw, 72px); background: rgba(202, 161, 131, .4); }
-.contact__head { grid-area: head; margin-bottom: clamp(36px, 4vw, 56px); }
-.contact__hello {
-  font-family: "Allura", cursive;
-  font-size: clamp(54px, 5.6vw, 80px);
-  line-height: 1;
-  color: var(--caramelo-claro);
-  margin: 0 0 6px;
-  rotate: -4deg;
-  transform-origin: left center;
+.contact__quote { position: relative; margin: 0; padding-left: clamp(64px, 6vw, 84px); }
+.contact__q { position: absolute; left: 0; top: -.12em; font-family: Georgia, "Times New Roman", serif; font-size: clamp(72px, 7vw, 96px); line-height: 1; color: var(--caramelo); }
+.contact__quote blockquote { margin: 0; }
+.contact__quote p { font-family: var(--display); font-size: clamp(20px, 1.9vw, 26px); line-height: 1.45; color: var(--crema); margin: 0 0 18px; max-width: 24ch; }
+.contact__quote figcaption { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--caramelo-claro); }
+.contact__quote figcaption::before { content: "— "; }
+/* Ícono al centro, sobre una línea vertical */
+.contact__icon { position: relative; align-self: stretch; display: grid; place-items: center; }
+.contact__icon::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(202, 161, 131, .35); }
+.contact__icon svg {
+  position: relative;
+  width: 92px; height: 92px;
+  padding: 30px;
+  border: 1px solid rgba(202, 161, 131, .7); border-radius: 50%;
+  background: var(--vino);
+  color: var(--caramelo);
+  stroke-width: 1.2;
 }
-.contact__info { grid-area: info; padding-bottom: clamp(48px, 5vw, 72px); }
 .contact__title {
-  font-family: var(--body);
-  font-size: clamp(20px, 2.15vw, 30px);
-  font-weight: 300;
-  letter-spacing: .22em;
+  font-family: var(--display);
+  font-size: clamp(28px, 2.9vw, 42px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: .02em;
   text-transform: uppercase;
-  line-height: 1.3;
   color: var(--crema);
-  margin: 0;
+  margin: 0 0 14px;
+  max-width: 15ch;
 }
-@media (min-width: 1100px) { .contact__title { white-space: nowrap; } }
-.contact__list { display: grid; gap: 14px; }
-.contact__list a { display: inline-flex; align-items: center; gap: 16px; color: var(--crema); text-decoration: none; font-size: 15px; letter-spacing: .03em; transition: color .2s; }
-.contact__list a:hover { color: var(--caramelo); }
-.contact__list i { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(202, 161, 131, .7); color: var(--caramelo); flex-shrink: 0; }
-.contact__list svg { width: 18px; height: 18px; }
-.contact__quote { grid-area: quote; justify-self: start; position: relative; padding: 0 28px clamp(48px, 5vw, 72px); }
-.contact__quote p { font-size: clamp(16px, 1.5vw, 19px); line-height: 1.75; color: var(--crema); margin: 0 0 30px; max-width: 26ch; }
-.contact__q { position: absolute; font-family: Georgia, "Times New Roman", serif; font-size: 72px; line-height: 1; color: var(--caramelo); }
-.contact__q--open { left: -14px; top: -40px; }
-.contact__q--close { right: 4px; top: 96px; }
-.contact__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-top: 18px; padding-bottom: 22px; border-top: 1px solid rgba(202, 161, 131, .2); font-size: 12px; color: var(--caramelo-claro); opacity: .75; }
-.contact__legal p { margin: 0; }
+.contact__cta p { font-size: 15px; line-height: 1.7; color: var(--caramelo-claro); margin: 0 0 26px; max-width: 36ch; }
+.contact__btn {
+  display: inline-flex; align-items: center; gap: 18px;
+  padding: 15px 22px 15px 26px;
+  border-radius: 2px;
+  background: var(--crema);
+  color: var(--vino);
+  font-size: 13px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s, gap .2s;
+}
+.contact__btn svg { width: 20px; height: 20px; }
+.contact__btn:hover { background: var(--caramelo-claro); gap: 24px; }
+
+/* Franja crema */
+.contact__band { background: var(--crema); color: var(--tinta); }
+.contact__band-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  align-items: center;
+  gap: clamp(28px, 4vw, 60px);
+  padding-top: 30px; padding-bottom: 30px;
+}
+.contact__brand { display: flex; align-items: center; gap: 24px; }
+.contact__brand img { width: 62px; height: auto; flex-shrink: 0; padding-right: 24px; box-sizing: content-box; border-right: 1px solid rgba(169, 119, 79, .45); }
+.contact__brand p { margin: 0; max-width: 30ch; font-size: 12px; line-height: 1.7; letter-spacing: .12em; text-transform: uppercase; color: var(--texto); }
+.contact__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.contact__list li, .contact__list a { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--texto); text-decoration: none; }
+.contact__list a:hover { color: var(--borgona); }
+.contact__list svg { width: 18px; height: 18px; color: var(--vino); flex-shrink: 0; }
+.contact__social { list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; }
+.contact__social a {
+  display: grid; place-items: center;
+  width: 46px; height: 46px;
+  border: 1px solid rgba(65, 1, 1, .45); border-radius: 50%;
+  color: var(--vino);
+  transition: background .2s, color .2s;
+}
+.contact__social a:hover { background: var(--vino); color: var(--crema); }
+.contact__social svg { width: 19px; height: 19px; }
+
+.contact__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-top: 18px; padding-bottom: 20px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--caramelo-claro); }
+.contact__legal p { margin: 0; opacity: .8; }
 .contact__legal a { color: var(--caramelo); }
 
 
@@ -684,16 +720,23 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
 /* Contacto en tablet y celular */
 @media (max-width: 960px) {
-  .contact__grid { grid-template-columns: 1fr 1fr; grid-template-areas: "head head" "info quote"; }
-  .contact__grid::before { display: none; }
+  .contact__band-grid { grid-template-columns: 1fr 1fr; }
+  .contact__brand { grid-column: 1 / -1; }
 }
-@media (max-width: 640px) {
-  .contact__grid { grid-template-columns: 1fr; grid-template-areas: "head" "info" "quote"; }
-  .contact__info { padding-bottom: 0; }
-  .contact__quote { justify-self: stretch; margin-top: 34px; padding: 34px 0 40px; border-top: 1px solid rgba(202, 161, 131, .25); text-align: center; }
-  .contact__quote p { margin: 0 auto 26px; }
-  .contact__q { position: static; display: block; font-size: 60px; line-height: .6; height: 30px; }
-  .contact__q--close { display: none; }
+@media (max-width: 760px) {
+  .contact__grid { grid-template-columns: 1fr; gap: 34px; text-align: center; }
+  .contact__quote { padding-left: 0; }
+  .contact__q { position: static; display: block; font-size: 64px; line-height: .5; height: 34px; }
+  .contact__quote p { margin-left: auto; margin-right: auto; }
+  .contact__icon { order: 1; height: 72px; }
+  .contact__icon::before { left: 0; right: 0; top: 50%; bottom: auto; width: auto; height: 1px; }
+  .contact__icon svg { width: 72px; height: 72px; padding: 23px; }
+  .contact__cta { order: 2; }
+  .contact__title, .contact__cta p { margin-left: auto; margin-right: auto; }
+  .contact__band-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 22px; }
+  .contact__brand { flex-direction: column; gap: 14px; }
+  .contact__brand img { padding: 0 0 14px; border-right: 0; border-bottom: 1px solid rgba(169, 119, 79, .45); width: 52px; }
+  .contact__list { justify-items: center; }
 }
 
 /* Celular */
@@ -714,7 +757,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .reel { width: 56vw; }
   .reels-cinta { --fundido: 24px; margin: 0 calc(-1 * var(--gutter)); }
 
-  .contact__legal { justify-content: center; text-align: center; }
+  .contact__legal { justify-content: center; text-align: center; letter-spacing: .04em; }
 }
 
 /* Menú lateral (se abre con el botón de tres líneas en el celular) */

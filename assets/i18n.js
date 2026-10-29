@@ -107,10 +107,11 @@ window.I18N_EN = {
     "Content made by real people, not by the brand. It feels authentic, builds trust and that's why it converts better than a traditional ad.",
 
   // Contacto (pie)
-  "Hablemos": "Let's talk",
   "¿Creamos contenido para tu marca?": "Shall we create content for your brand?",
   "Cuéntame qué producto quieres mostrar y te envío una propuesta a la medida.":
     "Tell me which product you want to showcase and I'll send you a tailored proposal.",
+  "Videos y fotos UGC que se sienten reales y venden como un anuncio.": "UGC videos and photos that feel real and sell like an ad.",
+  "Marcas de Latinoamérica y EE.UU.": "Brands across Latin America & the US",
   "Sitio por": "Site by",
   "Cerrar video": "Close video",
 };
