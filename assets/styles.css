@@ -338,7 +338,16 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .about__photo img { position: absolute; bottom: -2%; left: 50%; translate: -50% 0; height: 96%; width: auto; max-width: none; }
 
 /* Videos */
-.videos { background: var(--vino); color: var(--crema); }
+.videos {
+  color: var(--crema);
+  /* resplandor suave sobre el vino */
+  background:
+    radial-gradient(60% 55% at 88% 8%, rgba(150, 30, 55, .55), transparent 70%),
+    linear-gradient(118deg, transparent 35%, rgba(202, 161, 131, .07) 47%, transparent 59%),
+    radial-gradient(70% 45% at 50% 62%, rgba(202, 161, 131, .08), transparent 70%),
+    radial-gradient(55% 60% at 0% 100%, rgba(20, 0, 0, .45), transparent 70%),
+    var(--vino);
+}
 .videos .title { color: var(--caramelo); }
 .row-head {
   display: flex;
