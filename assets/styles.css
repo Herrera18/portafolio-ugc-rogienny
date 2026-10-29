@@ -146,7 +146,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 .hero__top {
   position: absolute;
-  top: 88px; left: var(--gutter); right: var(--gutter);
+  top: 100px; left: var(--gutter); right: var(--gutter);
   display: flex; justify-content: space-between;
   font-size: 12px; font-weight: 500;
   letter-spacing: .22em; text-transform: uppercase;
@@ -155,7 +155,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .hero__top i { font-style: normal; color: var(--caramelo); }
 .hero__word {
   position: absolute;
-  top: 112px; left: 0; right: 0;
+  top: 126px; left: 0; right: 0;
   margin: 0;
   text-align: center;
   font-family: var(--display);
@@ -170,7 +170,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 .hero__photo {
   position: absolute;
-  top: calc(112px + 6vw); bottom: 0; right: 11vw;
+  top: calc(126px + 6vw); bottom: 0; right: 11vw;
   margin: 0;
   z-index: 2;
 }
@@ -190,7 +190,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   position: relative;
   z-index: 3;
   max-width: calc(440px + var(--gutter));
-  padding: calc(112px + 13.5vw + 28px) 0 56px var(--gutter);
+  padding: calc(126px + 13.5vw + 28px) 0 56px var(--gutter);
 }
 .hero__kicker { font-size: 13px; font-weight: 500; letter-spacing: .35em; text-transform: uppercase; color: var(--caramelo-oscuro); margin-bottom: 10px; }
 .hero__role { font-size: clamp(22px, 2.3vw, 32px); font-weight: 300; letter-spacing: .12em; text-transform: uppercase; line-height: 1.25; color: var(--tinta); margin: 0; }
@@ -429,6 +429,41 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .reveal.is-in { opacity: 1; transform: none; }
 .no-js .reveal { opacity: 1; transform: none; }
 
+/* Barra flotante del menú
+   (el fondo va en ::before: así el menú del celular, que es position: fixed, sigue cubriendo toda la pantalla) */
+.nav {
+  top: 14px; left: 16px; right: 16px;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 10px 10px 10px 22px;
+  border-radius: 999px;
+}
+.nav::before {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(250, 244, 238, .74);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid rgba(169, 119, 79, .22);
+  box-shadow: 0 10px 30px rgba(65, 1, 1, .12);
+  transition: background .3s, box-shadow .3s;
+}
+.nav.is-scrolled, .nav.is-scrolled.is-scrolled {
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  padding: 10px 10px 10px 22px;
+}
+.nav.is-scrolled::before { background: rgba(250, 244, 238, .9); box-shadow: 0 12px 34px rgba(30, 2, 2, .22); }
+.nav.is-scrolled .nav__links a:not(.btn) { color: var(--vino); }
+.nav.is-scrolled .nav__links a:not(.btn):hover { color: var(--borgona); }
+.nav.is-scrolled .nav__logo .is-light { opacity: 0; }
+.nav.is-scrolled .nav__logo .is-dark { opacity: 1; }
+.nav__logo img { width: 44px; }
+.nav .btn--small { padding: 12px 24px; }
+
 /* Tablet */
 @media (max-width: 960px) {
   .reel { width: calc((100% - 2 * clamp(16px, 2.4vw, 32px)) / 3); }
@@ -469,12 +504,12 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .nav__links .btn { margin-top: 12px; }
   .nav__logo img { width: 44px; }
 
-  .hero { min-height: auto; display: flex; flex-direction: column; padding-top: 80px; }
+  .hero { min-height: auto; display: flex; flex-direction: column; padding-top: 86px; }
   .hero__top { position: static; padding: 0 var(--gutter); font-size: 10px; letter-spacing: .16em; }
   .hero__word { position: static; font-size: 19vw; margin-top: 14px; }
   .hero__photo { position: relative; top: auto; bottom: auto; right: auto; width: 80%; max-width: 360px; margin: -9vw auto 0; }
   .hero__photo img { width: 100%; height: auto; max-width: none; max-height: 56svh; margin: 0 auto; }
-  .hero__badge { width: 96px; right: 3vw; top: calc(80px + 30vw); bottom: auto; }
+  .hero__badge { width: 96px; right: 3vw; top: calc(86px + 30vw); bottom: auto; }
   .hero__text { padding: 30px var(--gutter) 52px; max-width: none; text-align: center; border-top: 1px solid rgba(105, 11, 35, .15); }
   .hero__rule { margin-left: auto; margin-right: auto; }
   .hero__lead { margin-left: auto; margin-right: auto; }
@@ -505,6 +540,17 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .steps span { flex-shrink: 0; margin-bottom: 0; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .footer { justify-content: center; text-align: center; }
+}
+
+/* Barra flotante en celular */
+@media (max-width: 760px) {
+  .nav, .nav.is-scrolled { top: 10px; left: 12px; right: 12px; padding: 6px 6px 6px 16px; }
+  .nav__logo img { width: 38px; }
+  .nav.is-scrolled .nav__toggle { border-color: rgba(65, 1, 1, .4); }
+  .nav.is-scrolled .nav__toggle span { background: var(--vino); }
+  .nav__toggle[aria-expanded="true"] { border-color: rgba(202, 161, 131, .5); }
+  .nav__toggle[aria-expanded="true"] span { background: var(--caramelo); }
+  .nav.is-scrolled .nav__links a:not(.btn) { color: var(--crema); }
 }
 
 @media (prefers-reduced-motion: reduce) {
