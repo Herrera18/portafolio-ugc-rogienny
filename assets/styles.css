@@ -189,14 +189,33 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .hero__text {
   position: relative;
   z-index: 3;
-  max-width: calc(440px + var(--gutter));
-  padding: calc(126px + var(--ws, 16.5vw) * .82 + 28px) 0 56px var(--gutter);
+  max-width: calc(540px + var(--gutter));
+  padding: calc(126px + var(--ws, 16.5vw) * .82 + 18px) 0 56px var(--gutter);
 }
-.hero__kicker { font-size: 13px; font-weight: 500; letter-spacing: .35em; text-transform: uppercase; color: var(--caramelo-oscuro); margin-bottom: 10px; }
-.hero__role { font-size: clamp(22px, 2.3vw, 32px); font-weight: 300; letter-spacing: .12em; text-transform: uppercase; line-height: 1.25; color: var(--tinta); margin: 0; }
-.hero__rule { display: block; width: 52px; height: 1.5px; background: var(--caramelo); margin: 24px 0; }
-.hero__lead { font-size: 15px; max-width: 34ch; color: var(--texto); margin-bottom: 26px; }
-.hero__name { font-family: var(--display); font-size: clamp(44px, 4.8vw, 70px); line-height: .95; color: var(--caramelo-oscuro); text-transform: uppercase; margin-bottom: 28px; }
+.hero__hello {
+  font-family: "Allura", cursive;
+  font-size: clamp(34px, 3.4vw, 48px);
+  line-height: 1;
+  color: var(--caramelo-oscuro);
+  margin: 0 0 -.05em .1em;
+}
+.hero__name {
+  font-family: var(--display);
+  font-size: clamp(56px, 6.6vw, 96px);
+  line-height: .9;
+  text-transform: uppercase;
+  color: var(--vino);
+  margin-bottom: 18px;
+}
+.hero__role {
+  font-size: clamp(13px, 1.15vw, 15px);
+  font-weight: 400;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--caramelo-oscuro);
+  margin-bottom: 18px;
+}
+.hero__lead { font-size: 15px; max-width: 36ch; color: var(--texto); margin-bottom: 26px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .socials { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
@@ -702,7 +721,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .hero__photo img { width: 100%; height: auto; max-width: none; max-height: 56svh; margin: 0 auto; }
   .hero__badge { width: 96px; right: 3vw; top: calc(86px + 30vw); bottom: auto; }
   .hero__text { padding: 30px var(--gutter) 52px; max-width: none; text-align: center; border-top: 1px solid rgba(105, 11, 35, .15); }
-  .hero__rule { margin-left: auto; margin-right: auto; }
   .hero__lead { margin-left: auto; margin-right: auto; }
   .hero__actions { justify-content: center; flex-wrap: nowrap; gap: 10px; }
   .hero__actions .btn { padding: 13px 18px; font-size: 14px; }
