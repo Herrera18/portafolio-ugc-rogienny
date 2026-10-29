@@ -437,7 +437,15 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .row-head--dark .row-head__title span { color: var(--caramelo); }
 .row-head__note { max-width: 32ch; margin: 0; padding-bottom: 6px; font-size: 15px; color: var(--texto); }
 
-.pillars { background: #f1e5da; padding: 0; }
+.pillars {
+  padding: 0;
+  /* mismo resplandor de seda que la portada */
+  background:
+    linear-gradient(118deg, transparent 28%, rgba(255, 255, 255, .5) 40%, transparent 52%),
+    linear-gradient(140deg, transparent 52%, rgba(255, 255, 255, .35) 62%, transparent 72%),
+    radial-gradient(80% 70% at 8% 100%, rgba(202, 161, 131, .28), transparent 60%),
+    linear-gradient(160deg, #f5ebe1, #ecdfd2);
+}
 .band {
   display: grid;
   grid-template-columns: 84px 1fr minmax(200px, 240px);
