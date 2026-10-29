@@ -35,6 +35,30 @@ const CONTACTO = {
     reels.appendChild(copia);
   });
 
+  // Carruseles de Servicios (celular): barritas que indican la tarjeta visible
+  document.querySelectorAll(".svc-list").forEach((list) => {
+    const items = [...list.children];
+    const dots = document.createElement("div");
+    dots.className = "svc-dots";
+    dots.setAttribute("aria-hidden", "true");
+    items.forEach((item, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.tabIndex = -1;
+      b.addEventListener("click", () => list.scrollTo({ left: item.offsetLeft - list.offsetLeft - parseFloat(getComputedStyle(list).paddingLeft || 0), behavior: "smooth" }));
+      dots.appendChild(b);
+    });
+    list.after(dots);
+    const update = () => {
+      const step = items[1] ? items[1].offsetLeft - items[0].offsetLeft : 1;
+      const i = Math.min(items.length - 1, Math.round(list.scrollLeft / step));
+      [...dots.children].forEach((d, k) => d.classList.toggle("is-active", k === i));
+    };
+    list.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
+
   const wa = `https://wa.me/${CONTACTO.whatsapp}?text=${encodeURIComponent(CONTACTO.mensaje)}`;
 
   document.querySelectorAll(".js-cotizar").forEach((a) => {
