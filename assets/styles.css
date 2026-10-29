@@ -205,7 +205,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .socials--center { justify-content: center; }
 
 /* Cinta de marcas */
-.brands { background: var(--borgona); color: var(--caramelo); padding: 34px 0 38px; overflow: hidden; }
+.brands { background: var(--borgona); color: var(--caramelo); padding: 30px 0; overflow: hidden; }
 .brands__title {
   text-align: center;
   font-family: var(--body);
