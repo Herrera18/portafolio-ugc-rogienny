@@ -228,41 +228,41 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .brands__title::before, .brands__title::after { content: ""; flex: 1; height: 1px; background: rgba(169, 119, 79, .45); }
 .marquee__track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
 .marquee__list { display: flex; align-items: center; flex-shrink: 0; }
-.marquee__list li { padding: 0 clamp(22px, 3vw, 40px); display: flex; align-items: center; }
+.marquee__list li { padding: 0 clamp(26px, 3.6vw, 52px); display: flex; align-items: center; }
 .marquee__list img { height: calc(var(--h, 44px) * .78); width: auto; max-width: none; opacity: .9; }
 @keyframes marquee { to { transform: translateX(-50%); } }
-@media (min-width: 900px) {
-  .marquee { max-width: var(--max); margin: 0 auto; }
-  .marquee__track { width: 100%; animation: none; }
-  .marquee__list { flex: 1; justify-content: space-between; }
-  .marquee__list[aria-hidden="true"] { display: none; }
-  .marquee__list li { padding: 0; }
-}
+
+.marquee { max-width: var(--max); margin: 0 auto; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee:hover .marquee__track { animation-play-state: paused; }
 @media (max-width: 899px) {
-  .marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); margin: 0 calc(-1 * var(--gutter)); }
+  .marquee { margin: 0 calc(-1 * var(--gutter)); }
   .brands__title { white-space: normal; text-align: center; letter-spacing: .2em; }
 }
 
 /* Sobre mí: herramientas | texto | foto en arco */
 .about__grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr .75fr;
-  gap: clamp(28px, 4vw, 64px);
-  align-items: center;
+  grid-template-columns: 1.05fr 1fr .8fr;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: stretch;
 }
+.about__tools, .about__text { padding-top: 6px; }
 .about__tools { padding-right: clamp(28px, 4vw, 64px); border-right: 1px solid rgba(169, 119, 79, .35); }
 .about__label {
-  display: flex; align-items: center; gap: 16px;
+  display: flex; align-items: center; gap: 14px;
+  height: 24px;
+  white-space: nowrap;
   font-family: var(--body);
-  font-size: clamp(14px, 1.3vw, 17px);
+  font-size: clamp(13px, 1.15vw, 15px);
   font-weight: 400;
-  letter-spacing: .2em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--tinta);
   margin-bottom: 30px;
 }
 .about__tools .about__label::after { content: ""; flex: 1; height: 1px; background: rgba(169, 119, 79, .6); }
 .about__label--star span { color: var(--caramelo); font-size: 1.3em; letter-spacing: 0; }
+.about__tools .about__label::after { min-width: 24px; }
 .tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px 12px; }
 .tools li {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -284,6 +284,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .tool__icon b { font-family: var(--body); font-weight: 500; font-size: clamp(16px, 1.5vw, 20px); letter-spacing: 0; text-transform: none; }
 .tool__icon svg { width: 46%; height: 46%; }
 .about__text p { font-size: 16px; line-height: 1.85; max-width: 46ch; }
+.about__text p:first-of-type { margin-top: 0; }
 .about__text .about__sign {
   font-family: "Allura", cursive;
   font-size: clamp(38px, 3.6vw, 50px);
@@ -293,7 +294,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 .about__photo {
   margin: 0;
-  aspect-ratio: 3 / 4.4;
+  min-height: 420px;
   border-radius: 999px 999px 0 0;
   background: linear-gradient(180deg, var(--arena), #e2cbb9);
   overflow: hidden;
@@ -581,11 +582,12 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 /* Sobre mí en tablet y celular */
 @media (max-width: 960px) {
   .about__grid { grid-template-columns: 1.2fr .8fr; }
+  .about__photo { min-height: 360px; }
   .about__tools { grid-column: 1 / -1; order: 3; border-right: 0; padding-right: 0; border-top: 1px solid rgba(169, 119, 79, .35); padding-top: 36px; }
 }
 @media (max-width: 760px) {
   .about__grid { grid-template-columns: 1fr; }
-  .about__photo { order: -1; width: 70%; max-width: 300px; margin: 0 auto; }
+  .about__photo { order: -1; width: 70%; max-width: 300px; min-height: 0; aspect-ratio: 3 / 4; margin: 0 auto; }
   .tools { gap: 22px 8px; }
 }
 
