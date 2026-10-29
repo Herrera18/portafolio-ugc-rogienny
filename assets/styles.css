@@ -663,6 +663,30 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .reveal.is-in { opacity: 1; transform: none; }
 .no-js .reveal { opacity: 1; transform: none; }
 
+/* Grupos que aparecen uno tras otro */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.stagger.is-in > * { opacity: 1; transform: none; }
+.no-js .stagger > * { opacity: 1; transform: none; }
+
+/* Fotos que se descubren de abajo hacia arriba */
+.about__photo img, .photo-list img, .band__card {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.1s cubic-bezier(.65, 0, .25, 1);
+}
+.about__photo.is-in img, .photo-list.is-in img, .band.is-in .band__card { clip-path: inset(0 0 0 0); }
+.photo-list img { transition-delay: calc(var(--i, 0) * 120ms + 150ms); }
+.band.is-in .band__card { transition-delay: .25s; }
+.no-js .about__photo img, .no-js .photo-list img, .no-js .band__card { clip-path: none; }
+
+/* Línea de tiempo que se dibuja */
+.timeline li:not(:last-child)::after { transform: scaleX(0); transform-origin: left; transition: transform .8s ease; transition-delay: calc(var(--i, 0) * 250ms + 300ms); }
+.timeline.is-in li:not(:last-child)::after { transform: scaleX(1); }
+
 /* Tablet */
 @media (max-width: 960px) {
   .band { grid-template-columns: 1fr; min-height: 0; }
@@ -766,6 +790,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .svc-row + .svc-dots { margin-bottom: 44px; }
   .timeline { grid-template-columns: 1fr; gap: 26px; position: relative; }
   .timeline::before { content: ""; position: absolute; left: 27.5px; top: 36px; bottom: 36px; width: 1px; background: rgba(169, 119, 79, .45); }
+  .timeline::before { transform: scaleY(0); transform-origin: top; transition: transform 1.4s ease .3s; }
+  .timeline.is-in::before { transform: scaleY(1); }
   .timeline li { display: grid; grid-template-columns: 56px 1fr; column-gap: 20px; align-items: center; }
   .timeline li:not(:last-child)::after { display: none; }
   .timeline__num { position: relative; z-index: 1; grid-row: 1 / span 2; align-self: center; margin: 0; }
@@ -798,4 +824,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .hero__badge svg { animation: none; }
   .reels { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .stagger > * { opacity: 1; transform: none; transition: none; }
+  .about__photo img, .photo-list img, .band__card { clip-path: none; transition: none; }
+  .timeline li::after, .timeline::before { transform: none; transition: none; }
 }

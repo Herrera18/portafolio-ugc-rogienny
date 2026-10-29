@@ -99,7 +99,16 @@ const CONTACTO = {
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // Animación de entrada
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Animación de entrada: los grupos aparecen uno tras otro (--i marca el orden)
+  [".hero__social", ".tools", ".photo-list", ".band__steps", ".svc-row", ".timeline", ".contact__list"].forEach((sel) => {
+    document.querySelectorAll(sel).forEach((group) => {
+      group.classList.remove("reveal");
+      group.classList.add("stagger");
+      [...group.children].forEach((child, i) => child.style.setProperty("--i", i));
+    });
+  });
   const reveal = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
@@ -108,10 +117,26 @@ const CONTACTO = {
       }
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-  document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
+  document.querySelectorAll(".reveal, .stagger, .band").forEach((el) => reveal.observe(el));
+
+  // Portada: "PORTAFOLIO" sube un poco más rápido que la página, así la foto parece estar delante
+  if (!reduce) {
+    const heroWord = document.querySelector(".hero__word");
+    let ticking = false;
+    const parallax = () => {
+      const y = Math.min(window.scrollY, window.innerHeight * 1.2);
+      heroWord.style.translate = `0 ${(y * -0.22).toFixed(1)}px`;
+      ticking = false;
+    };
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(parallax);
+      }
+    }, { passive: true });
+  }
 
   // Adelantos de video: se reproducen solo cuando están en pantalla
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const playing = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       const v = e.target;
