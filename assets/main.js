@@ -30,6 +30,7 @@ const CONTACTO = {
     document.querySelector(".js-email-wrap").hidden = false;
   }
   document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("heroYear").textContent = new Date().getFullYear();
 
   // Menú: fondo al hacer scroll y menú de celular
   const nav = document.getElementById("nav");

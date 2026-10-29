@@ -29,7 +29,8 @@
 
 <header class="nav" id="nav">
   <a class="nav__logo" href="#inicio" aria-label="Rogienny Herrera, inicio">
-    <img src="/media/marca/mono-caramelo.png" alt="" width="400" height="320">
+    <img class="is-dark" src="/media/marca/mono-vino.png" alt="" width="400" height="321">
+    <img class="is-light" src="/media/marca/mono-caramelo.png" alt="" width="400" height="320">
   </a>
   <nav class="nav__links" id="menu" aria-label="Secciones">
     <a href="#sobre-mi">Sobre mí</a>
@@ -47,29 +48,34 @@
 
   <!-- 1. PORTADA -->
   <section class="hero" id="inicio">
-    <div class="hero__ghost" aria-hidden="true">UGC</div>
-    <div class="hero__inner">
-      <div class="hero__text">
-        <p class="eyebrow reveal">Creadora UGC · Belleza, cabello y lifestyle</p>
-        <h1 class="hero__title reveal">
-          <span class="hero__name">Rogienny</span>
-          <span class="hero__last">Herrera</span>
-        </h1>
-        <p class="hero__lead reveal">Creo videos y fotos que se sienten como la recomendación de una amiga y venden como un anuncio.</p>
-        <div class="hero__actions reveal">
-          <a class="btn js-cotizar" href="#contacto">Pide tu cotización</a>
-          <a class="btn btn--ghost" href="#videos">Ver mis videos</a>
-        </div>
-        <ul class="socials reveal" aria-label="Redes sociales">
-          <li><a class="js-ig" data-handle="rhrogienny" href="#">@rhrogienny</a></li>
-          <li><a class="js-ig" data-handle="rogi_ugc" href="#">@rogi_ugc</a></li>
-          <li><a class="js-tt" data-handle="rogiherrera" href="#">TikTok @rogiherrera</a></li>
-        </ul>
+    <div class="hero__top">
+      <span>Belleza · Cabello · Lifestyle</span>
+      <span><i aria-hidden="true">✦</i> <span id="heroYear">2026</span></span>
+    </div>
+    <p class="hero__word" aria-hidden="true">Portafolio</p>
+
+    <figure class="hero__photo">
+      <img src="/media/fotos/hero.webp" alt="Rogienny Herrera, con el cabello rojo, apoyando el mentón en sus manos" width="1001" height="1345" fetchpriority="high">
+    </figure>
+
+    <div class="hero__badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <defs><path id="badgeCircle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+        <text><textPath href="#badgeCircle">Creadora UGC ✦ Belleza y cabello ✦ </textPath></text>
+      </svg>
+      <img src="/media/marca/mono-vino.png" alt="" width="400" height="321">
+    </div>
+
+    <div class="hero__text">
+      <p class="hero__kicker reveal">Creadora</p>
+      <p class="hero__role reveal">Contenido UGC<br>de belleza<br>y cabello</p>
+      <span class="hero__rule reveal" aria-hidden="true"></span>
+      <p class="hero__lead reveal">Creo videos y fotos que se sienten como la recomendación de una amiga y venden como un anuncio.</p>
+      <h1 class="hero__name reveal">Rogienny<br>Herrera</h1>
+      <div class="hero__actions reveal">
+        <a class="btn btn--dark js-cotizar" href="#contacto">Pide tu cotización</a>
+        <a class="btn btn--line" href="#videos">Ver mis videos</a>
       </div>
-      <figure class="hero__photo">
-        <div class="hero__arch" aria-hidden="true"></div>
-        <img src="/media/fotos/hero.webp" alt="Rogienny Herrera, con el cabello rojo, apoyando el mentón en sus manos" width="1001" height="1345" fetchpriority="high">
-      </figure>
     </div>
   </section>
 
@@ -79,10 +85,18 @@
     <div class="marquee">
       <div class="marquee__track">
         <ul class="marquee__list">
-          <li>Kérastase</li><li>Redken</li><li>Olaplex</li><li>L'Oréal Professionnel</li><li>Estée Lauder</li>
+          <li><img src="/media/marcas/kerastase.svg" alt="Kérastase" style="--h:46px" width="188" height="46"></li>
+          <li><img src="/media/marcas/redken.svg" alt="Redken" style="--h:50px" width="177" height="50"></li>
+          <li><img src="/media/marcas/olaplex.svg" alt="Olaplex" style="--h:28px" width="166" height="28"></li>
+          <li><img src="/media/marcas/loreal-professionnel.svg" alt="L'Oréal Professionnel" style="--h:48px" width="187" height="48"></li>
+          <li><img src="/media/marcas/estee-lauder.svg" alt="Estée Lauder" style="--h:30px" width="237" height="30"></li>
         </ul>
         <ul class="marquee__list" aria-hidden="true">
-          <li>Kérastase</li><li>Redken</li><li>Olaplex</li><li>L'Oréal Professionnel</li><li>Estée Lauder</li>
+          <li><img src="/media/marcas/kerastase.svg" alt="" style="--h:46px" width="188" height="46"></li>
+          <li><img src="/media/marcas/redken.svg" alt="" style="--h:50px" width="177" height="50"></li>
+          <li><img src="/media/marcas/olaplex.svg" alt="" style="--h:28px" width="166" height="28"></li>
+          <li><img src="/media/marcas/loreal-professionnel.svg" alt="" style="--h:48px" width="187" height="48"></li>
+          <li><img src="/media/marcas/estee-lauder.svg" alt="" style="--h:30px" width="237" height="30"></li>
         </ul>
       </div>
     </div>
