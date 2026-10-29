@@ -6,6 +6,35 @@ const CONTACTO = {
 };
 
 (() => {
+  // "PORTAFOLIO" ocupa justo el ancho entre los márgenes de la portada
+  const hero = document.querySelector(".hero");
+  const word = document.querySelector(".hero__word");
+  const fitWord = () => {
+    const pad = parseFloat(getComputedStyle(document.querySelector(".hero__top")).paddingLeft) || 0;
+    const top = document.querySelector(".hero__top").getBoundingClientRect();
+    const target = top.width - (getComputedStyle(document.querySelector(".hero__top")).position === "static" ? pad * 2 : 0);
+    word.style.fontSize = "100px";
+    const w = word.firstElementChild.getBoundingClientRect().width;
+    if (!w || !target) return;
+    const size = (100 * target) / w;
+    hero.style.setProperty("--ws", `${size.toFixed(2)}px`);
+    word.style.fontSize = "";
+  };
+  fitWord();
+  document.fonts && document.fonts.ready.then(fitWord);
+  window.addEventListener("resize", fitWord);
+
+  // Cinta de videos: se duplica la lista para que el deslizamiento no tenga corte
+  const reels = document.querySelector(".reels");
+  const originales = [...reels.children];
+  reels.style.setProperty("--piezas", originales.length);
+  originales.forEach((li) => {
+    const copia = li.cloneNode(true);
+    copia.setAttribute("aria-hidden", "true");
+    copia.classList.remove("reveal");
+    reels.appendChild(copia);
+  });
+
   const wa = `https://wa.me/${CONTACTO.whatsapp}?text=${encodeURIComponent(CONTACTO.mensaje)}`;
 
   document.querySelectorAll(".js-cotizar").forEach((a) => {
