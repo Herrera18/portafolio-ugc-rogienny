@@ -32,6 +32,22 @@ Luego copia un `<li class="reel">` en `index.html` y cambia el nombre, la marca 
 
 **Marcas de la cinta:** en `index.html`, sección "Cinta de marcas". La lista va dos veces (la segunda es la copia para que el movimiento sea continuo): cambia ambas.
 
+## Idiomas (español / inglés)
+
+El texto de `index.html` está en español. Las traducciones al inglés están en `assets/i18n.js`: cada línea es `"texto en español": "texto en inglés"`.
+
+- Para corregir un texto en inglés, cambia el valor de la derecha.
+- Si cambias un texto en español en `index.html`, cambia también su clave (la izquierda) en `i18n.js`, o ese texto quedará en español en la versión en inglés.
+- El mensaje de WhatsApp en inglés está al final de `i18n.js` (`I18N_EN_WA`).
+
+El idioma se elige así: `?lang=en` o `?lang=es` en el enlace; si no, la última elección del visitante; si no, el idioma de su navegador. El botón ES/EN del menú lo cambia y lo recuerda.
+
+Enlaces directos para compartir: `https://rogienny-ugc.vercel.app/?lang=en` (marcas de EE.UU.) y `https://rogienny-ugc.vercel.app/?lang=es`.
+
+## Fotos UGC
+
+Sección "Fotos que venden" en `index.html`. Cada foto es un `<li>` con su categoría y la imagen en `media/fotos/` (600×800, WebP).
+
 ## Ver en local
 
 ```bash

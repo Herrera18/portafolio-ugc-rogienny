@@ -36,7 +36,7 @@ const CONTACTO = {
   });
 
   // Carruseles de Servicios (celular): barritas que indican la tarjeta visible
-  document.querySelectorAll(".svc-list").forEach((list) => {
+  document.querySelectorAll(".svc-list, .photo-list").forEach((list) => {
     const items = [...list.children];
     const dots = document.createElement("div");
     dots.className = "svc-dots";
@@ -59,13 +59,15 @@ const CONTACTO = {
     update();
   });
 
-  const wa = `https://wa.me/${CONTACTO.whatsapp}?text=${encodeURIComponent(CONTACTO.mensaje)}`;
-
-  document.querySelectorAll(".js-cotizar").forEach((a) => {
-    a.href = wa;
-    a.target = "_blank";
-    a.rel = "noopener";
-  });
+  const setWhatsApp = (mensaje) => {
+    const wa = `https://wa.me/${CONTACTO.whatsapp}?text=${encodeURIComponent(mensaje)}`;
+    document.querySelectorAll(".js-cotizar").forEach((a) => {
+      a.href = wa;
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
+  };
+  setWhatsApp(CONTACTO.mensaje);
   document.querySelectorAll(".js-ig").forEach((a) => {
     a.href = `https://www.instagram.com/${a.dataset.handle}/`;
     a.target = "_blank";
@@ -165,4 +167,46 @@ const CONTACTO = {
     btn.addEventListener("click", () => openVideo(id, title));
     reel.querySelector(".reel__phone").appendChild(btn);
   });
+  // Idiomas: español (texto de la página) e inglés (assets/i18n.js).
+  // Se elige por ?lang=en|es, luego por la última elección guardada y, si no hay, por el idioma del navegador.
+  const dict = window.I18N_EN || {};
+  const nodes = [];
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    const key = node.nodeValue.trim();
+    if (key && dict[key]) nodes.push({ node, es: node.nodeValue, key });
+  }
+  const attrs = [];
+  document.querySelectorAll("[alt], [aria-label], [title]").forEach((el) => {
+    ["alt", "aria-label", "title"].forEach((name) => {
+      const val = el.getAttribute(name);
+      if (val && dict[val.trim()]) attrs.push({ el, name, es: val, key: val.trim() });
+    });
+  });
+  const metaDesc = document.querySelector('meta[name="description"]');
+  const esTitle = document.title;
+  const esDesc = metaDesc ? metaDesc.content : "";
+  const langBtn = document.getElementById("langToggle");
+
+  const setLang = (lang) => {
+    const en = lang === "en";
+    nodes.forEach((n) => (n.node.nodeValue = en ? n.es.replace(n.key, dict[n.key]) : n.es));
+    attrs.forEach((a) => a.el.setAttribute(a.name, en ? dict[a.key] : a.es));
+    document.documentElement.lang = lang;
+    document.title = en ? dict[esTitle] || esTitle : esTitle;
+    if (metaDesc) metaDesc.content = en ? dict[esDesc] || esDesc : esDesc;
+    setWhatsApp(en ? window.I18N_EN_WA || CONTACTO.mensaje : CONTACTO.mensaje);
+    if (langBtn) langBtn.querySelectorAll("[data-lang]").forEach((s) => s.classList.toggle("is-on", s.dataset.lang === lang));
+    try { localStorage.setItem("rh-lang", lang); } catch (e) {}
+    fitWord();
+  };
+
+  const fromUrl = new URLSearchParams(location.search).get("lang");
+  let saved = null;
+  try { saved = localStorage.getItem("rh-lang"); } catch (e) {}
+  const browser = ((navigator.languages && navigator.languages[0]) || navigator.language || "es").toLowerCase();
+  const initial = fromUrl === "en" || fromUrl === "es" ? fromUrl : saved || (browser.startsWith("es") ? "es" : "en");
+  setLang(initial);
+  if (langBtn) langBtn.addEventListener("click", () => setLang(document.documentElement.lang === "en" ? "es" : "en"));
 })();

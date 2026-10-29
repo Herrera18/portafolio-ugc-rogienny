@@ -36,6 +36,7 @@
     <a href="#sobre-mi">Sobre mí</a>
     <a href="#videos">Videos</a>
     <a href="#servicios">Servicios</a>
+    <button class="lang" id="langToggle" type="button" aria-label="Español / English"><span data-lang="es" class="is-on">ES</span><span data-lang="en">EN</span></button>
     <a class="btn btn--small js-cotizar" href="#contacto"><span class="cta-long">Pide tu cotización</span><span class="cta-short">Cotizar</span></a>
   </nav>
   <button class="nav__toggle" id="menuToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
@@ -181,6 +182,35 @@
     </div>
   </section>
 
+  <!-- 4b. FOTOS UGC -->
+  <section class="photos section" id="fotos">
+    <div class="wrap photos__grid">
+      <div class="photos__intro reveal">
+        <h2 class="photos__title">Fotos <span>que venden</span></h2>
+        <p class="photos__sub">Belleza · Cabello · Lifestyle</p>
+        <p class="photos__lead">Fotos de producto y lifestyle para anuncios, redes y tienda online.</p>
+      </div>
+      <ul class="photo-list reveal">
+        <li>
+          <span class="photos__cat">Cabello</span>
+          <img src="/media/fotos/ugc-cabello.webp" alt="Rogienny con productos Olaplex en una tienda" width="600" height="800" loading="lazy">
+        </li>
+        <li>
+          <span class="photos__cat">Lifestyle</span>
+          <img src="/media/fotos/ugc-lifestyle.webp" alt="Rogienny tomando café en una terraza de París" width="600" height="800" loading="lazy">
+        </li>
+        <li>
+          <span class="photos__cat">Viajes</span>
+          <img src="/media/fotos/ugc-viajes.webp" alt="Rogienny en una góndola en Venecia" width="600" height="800" loading="lazy">
+        </li>
+        <li>
+          <span class="photos__cat">Skincare</span>
+          <img src="/media/fotos/ugc-skincare.webp" alt="Rogienny mostrando productos Cetaphil" width="600" height="800" loading="lazy">
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- 5. PILARES -->
   <section class="pillars section" aria-labelledby="pillarsTitle">
     <div class="wrap">
@@ -302,6 +332,7 @@
   </div>
 </div>
 
+<script src="/assets/i18n.js" defer></script>
 <script src="/assets/main.js" defer></script>
 </body>
 </html>
