@@ -62,7 +62,7 @@ const CONTACTO = {
   );
 
   // Carruseles de Servicios y Fotos (celular): barritas que indican la tarjeta visible
-  document.querySelectorAll(".svc-list, .photo-list").forEach((list) => {
+  document.querySelectorAll(".svc-list").forEach((list) => {
     const items = [...list.children];
     const dots = document.createElement("div");
     dots.className = "svc-dots";
@@ -157,7 +157,7 @@ const CONTACTO = {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Animación de entrada: los grupos aparecen uno tras otro (--i marca el orden)
-  [".hero__social", ".tools", ".photo-list", ".band__steps", ".svc-row", ".timeline", ".contact__social"].forEach((sel) => {
+  [".hero__social", ".tools", ".photo-grid", ".band__steps", ".svc-row", ".timeline", ".contact__social"].forEach((sel) => {
     document.querySelectorAll(sel).forEach((group) => {
       group.classList.remove("reveal");
       group.classList.add("stagger");
