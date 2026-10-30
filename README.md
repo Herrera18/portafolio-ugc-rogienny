@@ -28,7 +28,7 @@ ffmpeg -ss 0 -i original.mp4 -t 6 -an -vf "scale='min(720,iw)':-2" -c:v libx264 
 ffmpeg -i media/videos/nombre.mp4 -frames:v 1 -q:v 4 media/videos/nombre.jpg
 ```
 
-Luego copia un `<li class="reel">` en `index.html` y cambia el nombre, la marca, el tipo y la categoría (`data-cat`: `cabello`, `skincare` u `hogar`; son las pestañas sobre la cinta). Con menos de 6 videos, una categoría queda fija y se desliza con el dedo.
+Luego copia un `<li class="reel">` en `index.html` y cambia el nombre, la marca, el tipo y la categoría (`data-cat`: `cabello`, `skincare`, `hogar` o `tips`, son las pestañas sobre la cinta; un video puede ir en dos, separadas por espacio: `cabello tips`). Con menos de 6 videos, una categoría queda fija y se desliza con el dedo.
 
 **Marcas de la cinta:** en `index.html`, sección "Cinta de marcas". La lista va dos veces (la segunda es la copia para que el movimiento sea continuo): cambia ambas.
 

@@ -42,7 +42,7 @@ const CONTACTO = {
   const filtrar = (cat) => {
     let visibles = 0;
     [...reels.children].forEach((li) => {
-      const entra = cat === "todos" || li.dataset.cat === cat;
+      const entra = cat === "todos" || li.dataset.cat.split(" ").includes(cat);
       li.hidden = !entra;
       if (entra && li.getAttribute("aria-hidden") !== "true") visibles++;
     });
