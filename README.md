@@ -61,3 +61,7 @@ python -m http.server 3100
 ```bash
 msedge --headless=new --hide-scrollbars --window-size=1200,630 --virtual-time-budget=8000 --allow-file-access-from-files --screenshot=og.png "file:///RUTA/portafolio-ugc-rogienny/tools/og.html"
 ```
+
+## Si cambias una foto o video por otro con el mismo nombre
+
+Los navegadores guardan las fotos y videos por un día. Para que se vea el cambio enseguida, sube el número de versión en `index.html`, por ejemplo `hero.webp?v=2` → `hero.webp?v=3`.
