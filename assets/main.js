@@ -62,6 +62,7 @@ const CONTACTO = {
   };
   const marcarPunto = () => {
     if (!puntos.offsetParent) return; // oculto en escritorio
+    if (document.documentElement.classList.contains("menu-open")) return; // nada que calcular con el menú abierto
     const caja = cinta.getBoundingClientRect();
     const centro = caja.left + caja.width / 2;
     let mejor = null, dist = Infinity;
