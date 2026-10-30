@@ -405,6 +405,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .reels-cinta.is-static .reels { animation: none; margin: 0 auto; padding: 0 var(--gutter); }
 .reels-cinta.is-static .reels > [aria-hidden="true"] { display: none; }
 .reels-cinta.is-static .reel { scroll-snap-align: start; }
+.menu-open .reels, .menu-open .marquee__track, .menu-open .hero__badge svg { animation-play-state: paused; }
 @keyframes reels-desliza { to { translate: calc(-50% - var(--hueco) / 2) 0; } }
 .reel { width: clamp(190px, 21vw, 260px); flex-shrink: 0; text-align: left; }
 .reel__phone {

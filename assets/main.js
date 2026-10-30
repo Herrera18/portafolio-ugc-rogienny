@@ -178,7 +178,22 @@ const CONTACTO = {
   // Menú lateral del celular
   const drawer = document.getElementById("drawer");
   const menuOpen = document.getElementById("menuOpen");
+  // Con el menú abierto se pausan los videos y la cinta: en Chrome de Android, cada video que
+  // arranca debajo hace desaparecer el menú por un instante (parpadeo).
+  let menuAbierto = false;
+  let enPausa = [];
   const setDrawer = (open) => {
+    if (open !== menuAbierto) {
+      menuAbierto = open;
+      document.documentElement.classList.toggle("menu-open", open);
+      if (open) {
+        enPausa = [...document.querySelectorAll("video")].filter((v) => !v.paused);
+        enPausa.forEach((v) => v.pause());
+      } else {
+        enPausa.forEach((v) => v.play().catch(() => {}));
+        enPausa = [];
+      }
+    }
     drawer.classList.toggle("is-open", open);
     drawer.setAttribute("aria-hidden", String(!open));
     menuOpen.setAttribute("aria-expanded", String(open));
@@ -305,7 +320,7 @@ const CONTACTO = {
   const playing = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       const v = e.target;
-      if (e.isIntersecting && !reduce) v.play().catch(() => {});
+      if (e.isIntersecting && !reduce && !menuAbierto) v.play().catch(() => {});
       else v.pause();
     });
   }, { threshold: 0.35 });
