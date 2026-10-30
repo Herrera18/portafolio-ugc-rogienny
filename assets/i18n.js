@@ -43,7 +43,7 @@ window.I18N_EN = {
   "Foto de producto": "Product photos",
   "Soy Rogienny, creadora UGC de belleza, cabello y lifestyle. Transformo productos en historias reales: muestro la emoción de usar algo por primera vez y el antes y el después de verdad.":
     "I'm Rogienny, a UGC creator for beauty, hair and lifestyle. I turn products into real stories: I show the excitement of trying something for the first time and the true before and after.",
-  "Rogienny sonriendo, con la mano en el cabello": "Rogienny smiling, with her hand in her hair",
+  "Rogienny sonriendo junto a productos Redken, Color WOW y L'Oréal": "Rogienny smiling next to Redken, Color WOW and L'Oréal products",
 
   // Videos
   "Videos UGC": "UGC Videos",
@@ -91,7 +91,7 @@ window.I18N_EN = {
   "Experiencias": "Experiences",
   "Rogienny sonriendo bajo los cerezos de un café": "Rogienny smiling under the cherry blossoms of a café",
   "Rogienny junto a un auto clásico rojo en un restaurante": "Rogienny next to a red classic car at a restaurant",
-  "Rogienny con productos Redken, Color WOW y L'Oréal": "Rogienny with Redken, Color WOW and L'Oréal products",
+  "Rogienny mostrando el aceite Kérastase Elixir Ultime": "Rogienny showing Kérastase Elixir Ultime oil",
   "Rogienny tomando café en un restaurante": "Rogienny having coffee at a restaurant",
   "Rogienny posando con lentes de sol y pantalón de cuero": "Rogienny posing in sunglasses and leather pants",
   "Rogienny brindando en un bar": "Rogienny raising a glass at a bar",
