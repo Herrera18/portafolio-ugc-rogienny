@@ -861,6 +861,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   background: rgba(43, 10, 10, .45);
   opacity: 0;
   transition: opacity .4s;
+  touch-action: none;
 }
 .drawer.is-open .drawer__fondo { opacity: 1; }
 .drawer__panel {
@@ -907,7 +908,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   text-decoration: none;
 }
 .drawer__social svg { width: 15px; height: 15px; color: var(--caramelo-oscuro); }
-.no-scroll, .no-scroll body { overflow: hidden; }
 
 /* Menú en celular: logo, idioma, "Cotizar" y botón del menú lateral */
 @media (max-width: 760px) {

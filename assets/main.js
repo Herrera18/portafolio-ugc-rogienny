@@ -182,10 +182,16 @@ const CONTACTO = {
     drawer.classList.toggle("is-open", open);
     drawer.setAttribute("aria-hidden", String(!open));
     menuOpen.setAttribute("aria-expanded", String(open));
-    document.documentElement.classList.toggle("no-scroll", open);
     if (open) drawer.querySelector(".drawer__close").focus();
   };
   menuOpen.addEventListener("click", () => setDrawer(true));
+  // Con el menú abierto la página de atrás no se mueve. No se usa overflow:hidden en la página
+  // porque en Chrome de Android recalcula todo y se ve un parpadeo.
+  const panel = drawer.querySelector(".drawer__panel");
+  drawer.addEventListener("touchmove", (e) => {
+    const panelConScroll = panel.scrollHeight > panel.clientHeight && panel.contains(e.target);
+    if (!panelConScroll) e.preventDefault();
+  }, { passive: false });
   drawer.querySelectorAll("[data-close], .drawer__links a, .drawer__social a").forEach((el) =>
     el.addEventListener("click", () => setDrawer(false))
   );
