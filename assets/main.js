@@ -28,7 +28,8 @@ const CONTACTO = {
   const reels = document.querySelector(".reels");
   const originales = [...reels.children];
   reels.style.setProperty("--piezas", originales.length);
-  originales.forEach((li) => {
+  originales.forEach((li, i) => {
+    li.dataset.idx = i;
     const copia = li.cloneNode(true);
     copia.setAttribute("aria-hidden", "true");
     copia.classList.remove("reveal");
@@ -39,6 +40,49 @@ const CONTACTO = {
   const reduceMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const cinta = document.querySelector(".reels-cinta");
   const filtros = document.querySelectorAll(".reel-tabs button");
+  // Indicador de la cinta (solo se ve en celular): una barrita por video, marca el que está al centro
+  const puntos = document.createElement("div");
+  puntos.className = "reel-dots";
+  puntos.setAttribute("aria-hidden", "true");
+  cinta.after(puntos);
+  let orden = new Map();
+  const armarPuntos = () => {
+    const visibles = originales.filter((li) => !li.hidden);
+    orden = new Map(visibles.map((li, k) => [li.dataset.idx, k]));
+    puntos.replaceChildren(...visibles.map((li) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.tabIndex = -1;
+      b.addEventListener("click", () => {
+        if (cinta.classList.contains("is-static")) cinta.scrollTo({ left: li.offsetLeft - cinta.clientWidth / 2 + li.offsetWidth / 2, behavior: "smooth" });
+      });
+      return b;
+    }));
+    marcarPunto();
+  };
+  const marcarPunto = () => {
+    if (!puntos.offsetParent) return; // oculto en escritorio
+    const caja = cinta.getBoundingClientRect();
+    const centro = caja.left + caja.width / 2;
+    let mejor = null, dist = Infinity;
+    for (const li of reels.children) {
+      if (li.hidden) continue;
+      const r = li.getBoundingClientRect();
+      const d = Math.abs(r.left + r.width / 2 - centro);
+      if (d < dist) { dist = d; mejor = li; }
+    }
+    const k = mejor ? orden.get(mejor.dataset.idx) : 0;
+    [...puntos.children].forEach((b, i) => b.classList.toggle("is-active", i === k));
+  };
+  // la cinta se mueve sola: se revisa varias veces por segundo solo mientras está en pantalla
+  let mirando = null;
+  new IntersectionObserver(([e]) => {
+    clearInterval(mirando);
+    if (e.isIntersecting) mirando = setInterval(marcarPunto, 250);
+  }).observe(cinta);
+  cinta.addEventListener("scroll", marcarPunto, { passive: true });
+  window.addEventListener("resize", marcarPunto);
+
   const filtrar = (cat) => {
     let visibles = 0;
     [...reels.children].forEach((li) => {
@@ -52,12 +96,14 @@ const CONTACTO = {
     void reels.offsetWidth; // reinicia el deslizamiento desde el principio
     reels.style.animation = "";
     cinta.scrollLeft = 0;
-    // Las tarjetas de los pilares abren los videos con su categoría elegida
+    filtros.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cat === cat)));
+    armarPuntos();
+  };
+  // Las tarjetas de los pilares abren los videos con su categoría elegida
   document.querySelectorAll(".pillar__link[data-cat]").forEach((a) =>
     a.addEventListener("click", () => filtrar(a.dataset.cat))
   );
-  filtros.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cat === cat)));
-  };
+  armarPuntos();
   filtros.forEach((b) =>
     b.addEventListener("click", () => {
       filtrar(b.dataset.cat);
