@@ -53,7 +53,7 @@ window.I18N_EN = {
   "Rutina capilar": "Hair routine",
   "Coloración": "Hair color",
   "Todos": "All",
-  "Lifestyle y hogar": "Lifestyle & home",
+  "Lifestyle y unboxing": "Lifestyle & unboxing",
   "Viaje a París": "Trip to Paris",
   "Tips y asesoría": "Tips & advice",
   "Orden de tu rutina": "Your routine, in order",
