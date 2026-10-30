@@ -30,7 +30,7 @@ window.I18N_EN = {
     "I create videos and photos that feel like a friend's recommendation and sell like an ad.",
   "Ver mis videos": "See my videos",
   "Redes sociales": "Social media",
-  "Rogienny Herrera, con el cabello rojo, apoyando el mentón en sus manos": "Rogienny Herrera, with red hair, resting her chin on her hands",
+  "Rogienny Herrera apoyando el mentón en sus manos": "Rogienny Herrera resting her chin on her hands",
 
   // Marcas
   "Marcas con las que he colaborado": "Brands I've worked with",
@@ -51,7 +51,18 @@ window.I18N_EN = {
   "Reseña en tienda": "In-store review",
   "Cuidado capilar": "Hair care",
   "Rutina capilar": "Hair routine",
-  "Color rojo": "Red color",
+  "Coloración": "Hair color",
+  "Todos": "All",
+  "Unboxing y hogar": "Unboxing & home",
+  "Categorías de video": "Video categories",
+  "Tratamiento capilar": "Hair treatment",
+  "Rutina de skincare": "Skincare routine",
+  "Unboxing de decoración": "Home decor unboxing",
+  "Sérum facial": "Face serum",
+  "Unboxing de hogar": "Home haul",
+  "Brillo y acabado": "Shine & finish",
+  "Crecimiento capilar": "Hair growth",
+  "Rutina de peinado": "Styling routine",
   "Resultado real": "Real results",
   "Recomendación": "Recommendation",
   "Demostración de producto": "Product demo",
@@ -74,8 +85,8 @@ window.I18N_EN = {
   "¿Por qué yo?": "Why me?",
   "Mis tres pilares": "My three pillars",
   "Cuidado capilar y color": "Hair care & color",
-  "Tutoriales, reseñas y resultados reales de antes y después. Mi cabello rojo es la prueba.":
-    "Tutorials, reviews and real before-and-after results. My red hair is the proof.",
+  "Tutoriales, reseñas y resultados reales de antes y después.":
+    "Tutorials, reviews and real before-and-after results.",
   "Unboxing, GRWM y testimonios sinceros que muestran tu fórmula en la piel.":
     "Unboxings, GRWMs and honest testimonials that show your formula on real skin.",
   "Lifestyle y viajes": "Lifestyle & travel",

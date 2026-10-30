@@ -384,6 +384,27 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   animation: reels-desliza calc(var(--piezas, 7) * 5.5s) linear infinite;
   will-change: translate;
 }
+/* Pestañas de categoría */
+.videos .row-head { margin-bottom: clamp(22px, 3vw, 32px); }
+.reel-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: clamp(26px, 3.5vw, 40px); }
+.reel-tabs button {
+  padding: 9px 18px;
+  border: 1px solid rgba(202, 161, 131, .45); border-radius: 999px;
+  background: transparent;
+  color: var(--caramelo-claro);
+  font-family: var(--body); font-size: 13px; letter-spacing: .04em;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.reel-tabs button:hover { border-color: var(--caramelo-claro); color: var(--crema); }
+.reel-tabs button[aria-pressed="true"] { background: var(--crema); border-color: var(--crema); color: var(--vino); }
+/* Con pocos videos la cinta no se mueve: queda centrada y se desliza con el dedo */
+.reels-cinta.is-static { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.reels-cinta.is-static::-webkit-scrollbar { display: none; }
+.reels-cinta.is-static { scroll-padding-inline: var(--gutter); }
+.reels-cinta.is-static .reels { animation: none; margin: 0 auto; padding: 0 var(--gutter); }
+.reels-cinta.is-static .reels > [aria-hidden="true"] { display: none; }
+.reels-cinta.is-static .reel { scroll-snap-align: start; }
 @keyframes reels-desliza { to { translate: calc(-50% - var(--hueco) / 2) 0; } }
 .reel { width: clamp(190px, 21vw, 260px); flex-shrink: 0; text-align: left; }
 .reel__phone {
@@ -766,6 +787,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
   .reel { width: 56vw; }
   .reels-cinta { --fundido: 24px; margin: 0 calc(-1 * var(--gutter)); }
+  .reel-tabs { flex-wrap: nowrap; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); padding: 2px var(--gutter); }
+  .reel-tabs::-webkit-scrollbar { display: none; }
+  .reel-tabs button { flex-shrink: 0; padding: 8px 13px; font-size: 12.5px; letter-spacing: .02em; }
 
   .contact__legal { justify-content: center; text-align: center; letter-spacing: .04em; }
 }

@@ -35,6 +35,32 @@ const CONTACTO = {
     reels.appendChild(copia);
   });
 
+  // Pestañas de categoría de los videos
+  const reduceMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const cinta = document.querySelector(".reels-cinta");
+  const filtros = document.querySelectorAll(".reel-tabs button");
+  const filtrar = (cat) => {
+    let visibles = 0;
+    [...reels.children].forEach((li) => {
+      const entra = cat === "todos" || li.dataset.cat === cat;
+      li.hidden = !entra;
+      if (entra && li.getAttribute("aria-hidden") !== "true") visibles++;
+    });
+    reels.style.setProperty("--piezas", visibles);
+    cinta.classList.toggle("is-static", visibles < 6);
+    reels.style.animation = "none";
+    void reels.offsetWidth; // reinicia el deslizamiento desde el principio
+    reels.style.animation = "";
+    cinta.scrollLeft = 0;
+    filtros.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cat === cat)));
+  };
+  filtros.forEach((b) =>
+    b.addEventListener("click", () => {
+      filtrar(b.dataset.cat);
+      b.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduceMotion() ? "auto" : "smooth" });
+    })
+  );
+
   // Carruseles de Servicios y Fotos (celular): barritas que indican la tarjeta visible
   document.querySelectorAll(".svc-list, .photo-list").forEach((list) => {
     const items = [...list.children];

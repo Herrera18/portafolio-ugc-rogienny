@@ -79,7 +79,7 @@
       <p class="hero__word" aria-hidden="true"><span>Portafolio</span></p>
 
       <figure class="hero__photo">
-        <img src="/media/fotos/hero.webp" alt="Rogienny Herrera, con el cabello rojo, apoyando el mentón en sus manos" width="1001" height="1345" fetchpriority="high">
+        <img src="/media/fotos/hero.webp" alt="Rogienny Herrera apoyando el mentón en sus manos" width="1001" height="1345" fetchpriority="high">
       </figure>
 
       <div class="hero__badge" aria-hidden="true">
@@ -167,36 +167,78 @@
         </div>
         <a class="row-head__link js-ig" data-handle="rogi_ugc" href="#">Ver más en Instagram <span aria-hidden="true">→</span></a>
       </header>
+      <div class="reel-tabs reveal" role="group" aria-label="Categorías de video">
+        <button type="button" data-cat="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-cat="cabello" aria-pressed="false">Cabello</button>
+        <button type="button" data-cat="skincare" aria-pressed="false">Skincare</button>
+        <button type="button" data-cat="hogar" aria-pressed="false">Unboxing y hogar</button>
+      </div>
       <div class="reels-cinta" role="group" aria-label="Videos UGC">
       <ul class="reels">
-        <!-- data-youtube: ID del video en YouTube (ej. en youtu.be/aqz-KE-bpKQ el ID es aqz-KE-bpKQ). Vacío = sin botón de play. -->
-        <li class="reel reveal" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/tienda.mp4" poster="/media/videos/tienda.jpg" muted loop playsinline preload="none"></video></div>
-          <p class="reel__brand" translate="no">Reseña en tienda</p><p class="reel__type">Cuidado capilar</p>
+        <!-- data-cat: cabello, skincare u hogar (pestañas de arriba). data-youtube: ID del video en YouTube (ej. en youtu.be/aqz-KE-bpKQ el ID es aqz-KE-bpKQ). Vacío = sin botón de play. -->
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/kerastase-genesis.mp4" poster="/media/videos/kerastase-genesis.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">Kérastase Genesis</p><p class="reel__type">Tratamiento capilar</p>
         </li>
-        <li class="reel reveal" data-youtube="">
+        <li class="reel reveal" data-cat="skincare" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/la-roche-posay.mp4" poster="/media/videos/la-roche-posay.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">La Roche-Posay</p><p class="reel__type">Rutina de skincare</p>
+        </li>
+        <li class="reel reveal" data-cat="hogar" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/shein-hogar.mp4" poster="/media/videos/shein-hogar.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">SHEIN Home</p><p class="reel__type">Unboxing de decoración</p>
+        </li>
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/ogx.mp4" poster="/media/videos/ogx.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">OGX</p><p class="reel__type">Rutina capilar</p>
+        </li>
+        <li class="reel reveal" data-cat="skincare" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/medicube.mp4" poster="/media/videos/medicube.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">Medicube</p><p class="reel__type">Sérum facial</p>
+        </li>
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/color.mp4" poster="/media/videos/color.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Coloración</p><p class="reel__type">Resultado real</p>
+        </li>
+        <li class="reel reveal" data-cat="hogar" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/shein-black-friday.mp4" poster="/media/videos/shein-black-friday.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">SHEIN Black Friday</p><p class="reel__type">Unboxing de hogar</p>
+        </li>
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
           <div class="reel__phone"><video src="/media/videos/kerastase.mp4" poster="/media/videos/kerastase.jpg" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Kérastase</p><p class="reel__type">Rutina capilar</p>
         </li>
-        <li class="reel reveal" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/color.mp4" poster="/media/videos/color.jpg" muted loop playsinline preload="none"></video></div>
-          <p class="reel__brand" translate="no">Color rojo</p><p class="reel__type">Resultado real</p>
+        <li class="reel reveal" data-cat="skincare" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/estee-lauder.mp4" poster="/media/videos/estee-lauder.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">Estée Lauder</p><p class="reel__type">Skincare y maquillaje</p>
         </li>
-        <li class="reel reveal" data-youtube="">
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/kerastase-elixir.mp4" poster="/media/videos/kerastase-elixir.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">Kérastase Elixir Ultime</p><p class="reel__type">Brillo y acabado</p>
+        </li>
+        <li class="reel reveal" data-cat="hogar" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/unboxing.mp4" poster="/media/videos/unboxing.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Unboxing</p><p class="reel__type">Primera impresión</p>
+        </li>
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/olivita.mp4" poster="/media/videos/olivita.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand" translate="no">Olivita</p><p class="reel__type">Crecimiento capilar</p>
+        </li>
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/peinado.mp4" poster="/media/videos/peinado.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Rutina de peinado</p><p class="reel__type">Tutorial</p>
+        </li>
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
           <div class="reel__phone"><video src="/media/videos/olaplex.mp4" poster="/media/videos/olaplex.jpg" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Olaplex · L'Oréal Pro</p><p class="reel__type">Recomendación</p>
         </li>
-        <li class="reel reveal" data-youtube="">
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
           <div class="reel__phone"><video src="/media/videos/redken.mp4" poster="/media/videos/redken.jpg" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Redken</p><p class="reel__type">Demostración de producto</p>
         </li>
-        <li class="reel reveal" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/unboxing.mp4" poster="/media/videos/unboxing.jpg" muted loop playsinline preload="none"></video></div>
-          <p class="reel__brand" translate="no">Unboxing</p><p class="reel__type">Primera impresión</p>
-        </li>
-        <li class="reel reveal" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/estee-lauder.mp4" poster="/media/videos/estee-lauder.jpg" muted loop playsinline preload="none"></video></div>
-          <p class="reel__brand" translate="no">Estée Lauder</p><p class="reel__type">Skincare y maquillaje</p>
+        <li class="reel reveal" data-cat="cabello" data-youtube="">
+          <div class="reel__phone"><video src="/media/videos/tienda.mp4" poster="/media/videos/tienda.jpg" muted loop playsinline preload="none"></video></div>
+          <p class="reel__brand">Reseña en tienda</p><p class="reel__type">Cuidado capilar</p>
         </li>
       </ul>
       </div>
@@ -247,7 +289,7 @@
           <li>
             <span class="band__num">01</span>
             <h3>Cuidado capilar y color</h3>
-            <p>Tutoriales, reseñas y resultados reales de antes y después. Mi cabello rojo es la prueba.</p>
+            <p>Tutoriales, reseñas y resultados reales de antes y después.</p>
           </li>
           <li>
             <span class="band__num">02</span>
