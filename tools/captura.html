@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- Muestra el sitio con todas las animaciones de entrada terminadas, para sacar capturas con Edge headless.
+     Uso: http://localhost:3100/tools/captura.html?sec=pillarsTitle&off=90  (sec = id del elemento al que bajar, w = ancho fijo en px para simular un celular) -->
+<html><head><meta charset="utf-8"><style>html,body{margin:0;height:100%;overflow:hidden}iframe{border:0;width:100%;height:100%}</style></head>
+<body><iframe id="f" src="/?lang=es"></iframe>
+<script>
+  const q = new URLSearchParams(location.search);
+  const f = document.getElementById("f");
+  if (q.get("w")) f.style.width = q.get("w") + "px";
+  let vueltas = 0;
+  const preparar = () => {
+    const d = f.contentDocument, w = f.contentWindow;
+    if (d && d.readyState !== "loading" && d.getElementById("contacto")) {
+      if (!d.getElementById("captura-css")) {
+        const st = d.createElement("style");
+        st.id = "captura-css";
+        st.textContent = "*,*::before,*::after{transition:none!important;animation:none!important}";
+        d.head.append(st);
+      }
+      d.querySelectorAll(".reveal,.stagger").forEach((e) => e.classList.add("is-in"));
+      d.querySelectorAll("img").forEach((i) => (i.loading = "eager"));
+      const el = d.getElementById(q.get("sec") || "inicio");
+      w.scrollTo(0, el.getBoundingClientRect().top + w.scrollY - Number(q.get("off") || 90));
+    }
+    if (++vueltas < 120) setTimeout(preparar, 50);
+  };
+  preparar();
+</script>
+</body></html>

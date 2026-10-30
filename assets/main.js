@@ -52,7 +52,11 @@ const CONTACTO = {
     void reels.offsetWidth; // reinicia el deslizamiento desde el principio
     reels.style.animation = "";
     cinta.scrollLeft = 0;
-    filtros.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cat === cat)));
+    // Las tarjetas de los pilares abren los videos con su categoría elegida
+  document.querySelectorAll(".pillar__link[data-cat]").forEach((a) =>
+    a.addEventListener("click", () => filtrar(a.dataset.cat))
+  );
+  filtros.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cat === cat)));
   };
   filtros.forEach((b) =>
     b.addEventListener("click", () => {
@@ -62,7 +66,7 @@ const CONTACTO = {
   );
 
   // Carruseles de Servicios y Fotos (celular): barritas que indican la tarjeta visible
-  document.querySelectorAll(".svc-list").forEach((list) => {
+  document.querySelectorAll(".svc-list, .pillar-list").forEach((list) => {
     const items = [...list.children];
     const dots = document.createElement("div");
     dots.className = "svc-dots";
@@ -157,7 +161,7 @@ const CONTACTO = {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Animación de entrada: los grupos aparecen uno tras otro (--i marca el orden)
-  [".hero__social", ".tools", ".photo-grid", ".band__steps", ".svc-row", ".contact__social"].forEach((sel) => {
+  [".hero__social", ".tools", ".photo-grid", ".pillar-list", ".svc-row", ".contact__social"].forEach((sel) => {
     document.querySelectorAll(sel).forEach((group) => {
       group.classList.remove("reveal");
       group.classList.add("stagger");
@@ -172,7 +176,7 @@ const CONTACTO = {
       }
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-  document.querySelectorAll(".reveal, .stagger, .band").forEach((el) => reveal.observe(el));
+  document.querySelectorAll(".reveal, .stagger").forEach((el) => reveal.observe(el));
 
   // Cómo trabajamos: el hilo dorado avanza con el scroll y enciende cada paso al llegar
   const proceso = document.querySelector(".process");
@@ -248,7 +252,7 @@ const CONTACTO = {
       else v.pause();
     });
   }, { threshold: 0.35 });
-  document.querySelectorAll(".reel video").forEach((v) => playing.observe(v));
+  document.querySelectorAll(".reel video, .pillar video").forEach((v) => playing.observe(v));
 
   // Video completo en YouTube (si la tarjeta tiene data-youtube)
   const modal = document.getElementById("modal");

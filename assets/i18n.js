@@ -98,6 +98,8 @@ window.I18N_EN = {
   // Pilares
   "¿Por qué yo?": "Why me?",
   "Mis tres pilares": "My three pillars",
+  "Ver videos": "See videos",
+  "Ver fotos": "See photos",
   "Cuidado capilar y color": "Hair care & color",
   "Tutoriales, reseñas y resultados reales de antes y después.":
     "Tutorials, reviews and real before-and-after results.",
