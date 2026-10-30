@@ -710,15 +710,17 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .stagger.is-in > * { opacity: 1; transform: none; }
 .no-js .stagger > * { opacity: 1; transform: none; }
 
-/* Fotos que se descubren de abajo hacia arriba */
-.about__photo img, .photo-list img, .band__card {
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 1.1s cubic-bezier(.65, 0, .25, 1);
-}
-.about__photo.is-in img, .photo-list.is-in img, .band.is-in .band__card { clip-path: inset(0 0 0 0); }
-.photo-list img { transition-delay: calc(var(--i, 0) * 120ms + 150ms); }
-.band.is-in .band__card { transition-delay: .25s; }
-.no-js .about__photo img, .no-js .photo-list img, .no-js .band__card { clip-path: none; }
+/* Fotos: aparecen con un fundido y se asientan con un leve cambio de tamaño */
+.about__photo img { scale: 1.06; transition: scale 1.4s cubic-bezier(.22, 1, .36, 1); }
+.about__photo.is-in img { scale: 1; }
+.photo-list img { scale: .96; transition: transform .5s ease, scale 1.2s cubic-bezier(.22, 1, .36, 1); }
+.photo-list.is-in img { scale: 1; }
+.no-js .about__photo img, .no-js .photo-list img { scale: 1; }
+
+/* Tarjeta de los pilares: se descubre de abajo hacia arriba */
+.band__card { clip-path: inset(100% 0 0 0); transition: clip-path 1.1s cubic-bezier(.65, 0, .25, 1); }
+.band.is-in .band__card { clip-path: inset(0 0 0 0); transition-delay: .25s; }
+.no-js .band__card { clip-path: none; }
 
 /* Línea de tiempo que se dibuja */
 .timeline li:not(:last-child)::after { transform: scaleX(0); transform-origin: left; transition: transform .8s ease; transition-delay: calc(var(--i, 0) * 250ms + 300ms); }
@@ -945,6 +947,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .reel { scroll-snap-align: start; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .stagger > * { opacity: 1; transform: none; transition: none; }
-  .about__photo img, .photo-list img, .band__card { clip-path: none; transition: none; }
+  .about__photo img, .photo-list img { scale: 1; transition: none; }
+  .band__card { clip-path: none; transition: none; }
   .timeline li::after, .timeline::before { transform: none; transition: none; }
 }
