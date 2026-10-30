@@ -839,6 +839,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .reel-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; max-width: 300px; margin: 18px auto 0; }
   .reel-dots button { width: 8px; height: 3px; padding: 0; border: 0; border-radius: 3px; background: rgba(227, 199, 177, .3); transition: width .3s, background .3s; }
   .reel-dots button.is-active { width: 20px; background: var(--caramelo); }
+  .reels-cinta:not(.is-static) + .reel-dots { display: none; }
   .reel-tabs { flex-wrap: nowrap; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); padding: 2px var(--gutter); }
   .reel-tabs::-webkit-scrollbar { display: none; }
   .reel-tabs button { flex-shrink: 0; padding: 8px 13px; font-size: 12.5px; letter-spacing: .02em; }

@@ -83,7 +83,11 @@ const CONTACTO = {
   cinta.addEventListener("scroll", marcarPunto, { passive: true });
   window.addEventListener("resize", marcarPunto);
 
+  // En celular solo "Todos" se mueve sola; las categorías quedan quietas para deslizarlas con el dedo
+  const celular = window.matchMedia("(max-width: 760px)");
+  let categoria = "todos";
   const filtrar = (cat) => {
+    categoria = cat;
     let visibles = 0;
     [...reels.children].forEach((li) => {
       const entra = cat === "todos" || li.dataset.cat.split(" ").includes(cat);
@@ -91,7 +95,7 @@ const CONTACTO = {
       if (entra && li.getAttribute("aria-hidden") !== "true") visibles++;
     });
     reels.style.setProperty("--piezas", visibles);
-    cinta.classList.toggle("is-static", visibles < 6);
+    cinta.classList.toggle("is-static", visibles < 6 || (celular.matches && cat !== "todos"));
     reels.style.animation = "none";
     void reels.offsetWidth; // reinicia el deslizamiento desde el principio
     reels.style.animation = "";
@@ -104,6 +108,7 @@ const CONTACTO = {
     a.addEventListener("click", () => filtrar(a.dataset.cat))
   );
   armarPuntos();
+  celular.addEventListener("change", () => filtrar(categoria));
   filtros.forEach((b) =>
     b.addEventListener("click", () => {
       filtrar(b.dataset.cat);
