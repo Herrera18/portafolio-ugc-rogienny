@@ -157,7 +157,7 @@ const CONTACTO = {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Animación de entrada: los grupos aparecen uno tras otro (--i marca el orden)
-  [".hero__social", ".tools", ".photo-grid", ".band__steps", ".svc-row", ".timeline", ".contact__social"].forEach((sel) => {
+  [".hero__social", ".tools", ".photo-grid", ".band__steps", ".svc-row", ".contact__social"].forEach((sel) => {
     document.querySelectorAll(sel).forEach((group) => {
       group.classList.remove("reveal");
       group.classList.add("stagger");
@@ -173,6 +173,55 @@ const CONTACTO = {
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   document.querySelectorAll(".reveal, .stagger, .band").forEach((el) => reveal.observe(el));
+
+  // Cómo trabajamos: el hilo dorado avanza con el scroll y enciende cada paso al llegar
+  const proceso = document.querySelector(".process");
+  if (proceso) {
+    const pasos = [...proceso.querySelectorAll(".step")];
+    let fracs = [], vertical = false, inicio = 0, largo = 1;
+    const medir = () => {
+      const caja = proceso.getBoundingClientRect();
+      const centros = pasos.map((li) => {
+        const r = li.querySelector(".timeline__num").getBoundingClientRect();
+        return { x: r.left + r.width / 2 - caja.left, y: r.top + r.height / 2 - caja.top };
+      });
+      const a = centros[0], b = centros[centros.length - 1];
+      vertical = Math.abs(b.x - a.x) < 4;
+      inicio = vertical ? a.y : a.x;
+      largo = Math.max(1, vertical ? b.y - a.y : b.x - a.x);
+      proceso.style.setProperty("--tx", `${a.x}px`);
+      proceso.style.setProperty("--ty", `${a.y}px`);
+      proceso.style.setProperty(vertical ? "--th" : "--tw", `${largo}px`);
+      fracs = centros.map((c) => ((vertical ? c.y : c.x) - inicio) / largo);
+    };
+    const pintar = (p) => {
+      proceso.style.setProperty("--p", p.toFixed(4));
+      proceso.style.setProperty("--spark", p > 0.005 && p < 0.995 ? 1 : 0);
+      pasos.forEach((li, i) => li.classList.toggle("is-lit", p > 0.001 && p >= fracs[i] - 0.002));
+    };
+    const avance = () => {
+      const caja = proceso.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (vertical) return (vh * 0.62 - (caja.top + inicio)) / largo;
+      return (vh * 0.85 - caja.top) / (vh * 0.4);
+    };
+    let pendiente = false;
+    const actualizar = () => {
+      pendiente = false;
+      pintar(Math.min(1, Math.max(0, avance())));
+    };
+    medir();
+    if (reduce) {
+      pintar(1);
+    } else {
+      actualizar();
+      window.addEventListener("scroll", () => {
+        if (!pendiente) { pendiente = true; requestAnimationFrame(actualizar); }
+      }, { passive: true });
+    }
+    window.addEventListener("resize", () => { medir(); reduce ? pintar(1) : actualizar(); });
+    document.fonts && document.fonts.ready.then(() => { medir(); reduce ? pintar(1) : actualizar(); });
+  }
 
   // Portada: "PORTAFOLIO" sube un poco más rápido que la página, así la foto parece estar delante
   if (!reduce) {
