@@ -43,7 +43,7 @@ window.I18N_EN = {
   "Foto de producto": "Product photos",
   "Soy Rogienny, creadora UGC de belleza, cabello y lifestyle. Transformo productos en historias reales: muestro la emoción de usar algo por primera vez y el antes y el después de verdad.":
     "I'm Rogienny, a UGC creator for beauty, hair and lifestyle. I turn products into real stories: I show the excitement of trying something for the first time and the true before and after.",
-  "Rogienny tomando una taza de té, con lentes de sol": "Rogienny drinking a cup of tea, wearing sunglasses",
+  "Rogienny sonriendo, con la mano en el cabello": "Rogienny smiling, with her hand in her hair",
 
   // Videos
   "Videos UGC": "UGC Videos",
@@ -84,11 +84,12 @@ window.I18N_EN = {
   "que venden": "that sell",
   "Fotos de producto y lifestyle para anuncios, redes y tienda online.": "Product and lifestyle photos for ads, social media and online stores.",
   "Cabello": "Hair",
-  "Viajes": "Travel",
-  "Rogienny con productos Olaplex en una tienda": "Rogienny with Olaplex products in a store",
-  "Rogienny tomando café en una terraza de París": "Rogienny having coffee at a café in Paris",
-  "Rogienny en una góndola en Venecia": "Rogienny on a gondola in Venice",
-  "Rogienny mostrando productos Cetaphil": "Rogienny showing Cetaphil products",
+  "Moda": "Fashion",
+  "Restaurantes": "Restaurants",
+  "Rogienny con productos Redken, Color WOW y L'Oréal": "Rogienny with Redken, Color WOW and L'Oréal products",
+  "Rogienny tomando café en un restaurante": "Rogienny having coffee at a restaurant",
+  "Rogienny posando con lentes de sol y pantalón de cuero": "Rogienny posing in sunglasses and leather pants",
+  "Rogienny brindando en un bar": "Rogienny raising a glass at a bar",
 
   // Pilares
   "¿Por qué yo?": "Why me?",
