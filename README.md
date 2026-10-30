@@ -53,3 +53,11 @@ Sección "Fotos que venden" en `index.html`. Cada foto es un `<li>` con su categ
 ```bash
 python -m http.server 3100
 ```
+
+## Imagen para compartir (WhatsApp, redes)
+
+`media/og.jpg` se genera desde `tools/og.html` (mismo diseño que la portada; la carpeta `tools` no se publica). Si cambia la foto de portada, ábrela con Edge en modo headless y guarda la captura como `media/og.jpg`:
+
+```bash
+msedge --headless=new --hide-scrollbars --window-size=1200,630 --virtual-time-budget=8000 --allow-file-access-from-files --screenshot=og.png "file:///RUTA/portafolio-ugc-rogienny/tools/og.html"
+```

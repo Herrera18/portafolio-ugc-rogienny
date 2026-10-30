@@ -1,0 +1,72 @@
+<!doctype html>
+<!-- Imagen para compartir (media/og.jpg), 1200x630, con el mismo diseño de la portada.
+     Para regenerarla: ver README, sección "Imagen para compartir". -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500&display=block" rel="stylesheet">
+<style>
+  @font-face { font-family: "Dastin"; src: url("../assets/fonts/Dastin.otf") format("opentype"); font-display: block; }
+  :root { --vino: #410101; --caramelo: #caa183; --caramelo-oscuro: #a8774f; --caramelo-texto: #8f5d38; --tinta: #2b0a0a; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    color: var(--tinta);
+    background:
+      linear-gradient(118deg, transparent 28%, rgba(255, 255, 255, .55) 40%, transparent 52%),
+      linear-gradient(140deg, transparent 52%, rgba(255, 255, 255, .4) 62%, transparent 72%),
+      radial-gradient(90% 60% at 10% 100%, rgba(202, 161, 131, .28), transparent 60%),
+      linear-gradient(160deg, #f8f0e8, #eee0d3);
+  }
+  .top {
+    position: absolute; top: 34px; left: 56px; right: 56px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--vino);
+  }
+  .top i { font-style: normal; color: var(--caramelo); }
+  .word {
+    position: absolute; top: 58px; left: 56px; right: 56px;
+    text-align: center; white-space: nowrap;
+    font-family: "Dastin", serif; text-transform: uppercase; line-height: .82;
+    color: var(--vino); z-index: 1;
+  }
+  .photo { position: absolute; bottom: 0; right: 118px; height: 520px; z-index: 2; }
+  .text { position: absolute; left: 56px; bottom: 58px; z-index: 3; }
+  .hello { font-family: "Allura", cursive; font-size: 46px; line-height: 1; color: var(--caramelo-oscuro); margin: 0 0 -4px 4px; }
+  .name { font-family: "Dastin", serif; font-size: 104px; line-height: .88; text-transform: uppercase; color: var(--vino); }
+  .role { margin-top: 18px; font-size: 14px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--caramelo-texto); }
+  .badge { position: absolute; right: 40px; bottom: 96px; width: 132px; height: 132px; z-index: 3; }
+  .badge svg { width: 100%; height: 100%; overflow: visible; }
+  .badge text { font-family: "Poppins", sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; fill: var(--vino); }
+  .badge img { position: absolute; inset: 0; margin: auto; width: 46%; }
+</style>
+</head>
+<body>
+  <div class="top"><span>Belleza · Cabello · Lifestyle</span><span><i>✦</i> Creadora UGC</span></div>
+  <p class="word"><span id="word">Portafolio</span></p>
+  <img class="photo" src="../media/fotos/hero.webp" alt="">
+  <div class="text">
+    <p class="hello">Hola, soy</p>
+    <p class="name">Rogienny<br>Herrera</p>
+    <p class="role">Creadora UGC · Belleza y cabello</p>
+  </div>
+  <div class="badge">
+    <svg viewBox="0 0 200 200">
+      <defs><path id="c" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+      <text><textPath href="#c">Creadora UGC ✦ Belleza y cabello ✦ </textPath></text>
+    </svg>
+    <img src="../media/marca/mono-vino.png" alt="">
+  </div>
+<script>
+  // "PORTAFOLIO" ocupa todo el ancho, como en la portada del sitio
+  document.fonts.ready.then(() => {
+    const w = document.getElementById("word"), box = w.parentElement;
+    box.style.fontSize = "100px";
+    box.style.fontSize = (100 * box.clientWidth / w.getBoundingClientRect().width) + "px";
+    document.querySelector(".photo").style.height = (630 - 58 - box.getBoundingClientRect().height * .42) + "px";
+  });
+</script>
+</body>
+</html>
