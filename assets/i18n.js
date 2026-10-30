@@ -110,6 +110,7 @@ window.I18N_EN = {
 
   // Servicios
   "Mis servicios": "My services",
+  "Lo que ofrezco": "What I offer",
   "Fotos y videos UGC": "UGC photos & videos",
   "Contenido vertical para anuncios, redes y tienda online, en belleza, cabello, skincare y lifestyle.":
     "Vertical content for ads, social media and online stores, in beauty, hair, skincare and lifestyle.",
