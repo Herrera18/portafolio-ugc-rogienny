@@ -69,6 +69,7 @@ window.I18N_EN = {
   "Rutina de skincare": "Skincare routine",
   "Unboxing de decoración": "Home decor unboxing",
   "Sérum facial": "Face serum",
+  "Spray facial calmante": "Soothing face mist",
   "Unboxing de hogar": "Home haul",
   "Brillo y acabado": "Shine & finish",
   "Crecimiento capilar": "Hair growth",
