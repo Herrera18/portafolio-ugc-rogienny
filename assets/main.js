@@ -317,6 +317,24 @@ const CONTACTO = {
     }, { passive: true });
   }
 
+  // Portadas de los videos: se cargan cuando su sección se acerca a la pantalla,
+  // para que no compitan con la foto de portada al abrir la página
+  const ponerPortadas = (zona) => zona.querySelectorAll("video[data-poster]").forEach((v) => {
+    v.poster = v.dataset.poster;
+    v.removeAttribute("data-poster");
+  });
+  const zonasVideo = [...new Set([...document.querySelectorAll("video[data-poster]")].map((v) => v.closest("section") || document.body))];
+  if ("IntersectionObserver" in window) {
+    const portadas = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        ponerPortadas(e.target);
+        portadas.unobserve(e.target);
+      });
+    }, { rootMargin: "900px 0px" });
+    zonasVideo.forEach((z) => portadas.observe(z));
+  } else zonasVideo.forEach(ponerPortadas);
+
   // Adelantos de video: se reproducen solo cuando están en pantalla
   const playing = new IntersectionObserver((entries) => {
     entries.forEach((e) => {

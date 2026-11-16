@@ -14,7 +14,7 @@
       if (!d.getElementById("captura-css")) {
         const st = d.createElement("style");
         st.id = "captura-css";
-        st.textContent = "*,*::before,*::after{transition:none!important;animation:none!important}";
+        st.textContent = "html{scroll-behavior:auto!important}*,*::before,*::after{transition:none!important;animation:none!important}";
         d.head.append(st);
       }
       d.querySelectorAll(".reveal,.stagger").forEach((e) => e.classList.add("is-in"));

@@ -18,7 +18,8 @@
   <link rel="preload" href="/assets/fonts/Dastin.otf" as="font" type="font/otf" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;500;600&display=swap"></noscript>
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
@@ -79,7 +80,7 @@
       <p class="hero__word" aria-hidden="true"><span>Portafolio</span></p>
 
       <figure class="hero__photo">
-        <img src="/media/fotos/hero.webp?v=4" alt="Rogienny Herrera apoyando el mentón en sus manos" width="1792" height="2357" fetchpriority="high">
+        <img src="/media/fotos/hero-720.webp" srcset="/media/fotos/hero-480.webp 480w, /media/fotos/hero-720.webp 720w, /media/fotos/hero-1080.webp 1080w, /media/fotos/hero.webp?v=4 1792w" sizes="(max-width: 760px) min(80vw, 360px), 44vw" alt="Rogienny Herrera apoyando el mentón en sus manos" width="1792" height="2357" fetchpriority="high">
       </figure>
 
       <div class="hero__badge" aria-hidden="true">
@@ -152,7 +153,7 @@
         <p class="about__sign" aria-hidden="true">Rogienny Herrera</p>
       </div>
       <figure class="about__photo reveal">
-        <img src="/media/fotos/sobre-mi.webp" alt="Rogienny sonriendo junto a productos Redken, Color WOW y L'Oréal" width="900" height="1200" loading="lazy">
+        <img src="/media/fotos/sobre-mi-450.webp" srcset="/media/fotos/sobre-mi-450.webp 450w, /media/fotos/sobre-mi-600.webp 600w, /media/fotos/sobre-mi.webp 900w" sizes="(max-width: 760px) 300px, 32vw" alt="Rogienny sonriendo junto a productos Redken, Color WOW y L'Oréal" width="900" height="1200" loading="lazy">
       </figure>
     </div>
   </section>
@@ -178,95 +179,95 @@
       <ul class="reels">
         <!-- data-cat: cabello, skincare, hogar o tips (pestañas de arriba; puede llevar dos separadas por espacio). data-youtube: ID del video en YouTube (ej. en youtu.be/aqz-KE-bpKQ el ID es aqz-KE-bpKQ). Vacío = sin botón de play. -->
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/kerastase-genesis.mp4" poster="/media/videos/kerastase-genesis.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/kerastase-genesis.mp4" data-poster="/media/videos/kerastase-genesis.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Kérastase Genesis</p><p class="reel__type">Tratamiento capilar</p>
         </li>
         <li class="reel reveal" data-cat="cabello tips" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/orden-productos.mp4" poster="/media/videos/orden-productos.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/orden-productos.mp4" data-poster="/media/videos/orden-productos.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand">Orden de tu rutina</p><p class="reel__type">Tips de rutina capilar</p>
         </li>
         <li class="reel reveal" data-cat="skincare" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/la-roche-posay.mp4" poster="/media/videos/la-roche-posay.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/la-roche-posay.mp4" data-poster="/media/videos/la-roche-posay.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">La Roche-Posay</p><p class="reel__type">Rutina de skincare</p>
         </li>
         <li class="reel reveal" data-cat="hogar" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/viaje-paris.mp4" poster="/media/videos/viaje-paris.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/viaje-paris.mp4" data-poster="/media/videos/viaje-paris.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand">Viaje a París</p><p class="reel__type">Lifestyle y viajes</p>
         </li>
         <li class="reel reveal" data-cat="hogar" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/shein-hogar.mp4" poster="/media/videos/shein-hogar.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/shein-hogar.mp4" data-poster="/media/videos/shein-hogar.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">SHEIN Home</p><p class="reel__type">Unboxing de decoración</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/ogx.mp4" poster="/media/videos/ogx.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/ogx.mp4" data-poster="/media/videos/ogx.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">OGX</p><p class="reel__type">Rutina capilar</p>
         </li>
         <li class="reel reveal" data-cat="cabello tips" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/productos-favoritos.mp4" poster="/media/videos/productos-favoritos.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/productos-favoritos.mp4" data-poster="/media/videos/productos-favoritos.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand">Mis favoritos</p><p class="reel__type">Productos que utilizo</p>
         </li>
         <li class="reel reveal" data-cat="skincare" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/medicube.mp4" poster="/media/videos/medicube.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/medicube.mp4" data-poster="/media/videos/medicube.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Medicube</p><p class="reel__type">Sérum facial</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/color.mp4" poster="/media/videos/color.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/color.mp4" data-poster="/media/videos/color.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand">Coloración</p><p class="reel__type">Resultado real</p>
         </li>
         <li class="reel reveal" data-cat="hogar" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/shein-black-friday.mp4" poster="/media/videos/shein-black-friday.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/shein-black-friday.mp4" data-poster="/media/videos/shein-black-friday.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">SHEIN Black Friday</p><p class="reel__type">Unboxing de hogar</p>
         </li>
         <li class="reel reveal" data-cat="tips" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/asesoria-compras.mp4" poster="/media/videos/asesoria-compras.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/asesoria-compras.mp4" data-poster="/media/videos/asesoria-compras.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand">Asesoría de compras</p><p class="reel__type">Ofertas y recomendaciones</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/kerastase.mp4" poster="/media/videos/kerastase.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/kerastase.mp4" data-poster="/media/videos/kerastase.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Kérastase</p><p class="reel__type">Rutina capilar</p>
         </li>
         <li class="reel reveal" data-cat="skincare" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/estee-lauder.mp4" poster="/media/videos/estee-lauder.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/estee-lauder.mp4" data-poster="/media/videos/estee-lauder.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Estée Lauder</p><p class="reel__type">Skincare y maquillaje</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/kerastase-elixir.mp4" poster="/media/videos/kerastase-elixir.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/kerastase-elixir.mp4" data-poster="/media/videos/kerastase-elixir.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Kérastase Elixir Ultime</p><p class="reel__type">Brillo y acabado</p>
         </li>
         <li class="reel reveal" data-cat="skincare" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/medicube-spray.mp4" poster="/media/videos/medicube-spray.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/medicube-spray.mp4" data-poster="/media/videos/medicube-spray.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Medicube</p><p class="reel__type">Spray facial calmante</p>
         </li>
         <li class="reel reveal" data-cat="cabello tips" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/preguntas-frecuentes.mp4" poster="/media/videos/preguntas-frecuentes.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/preguntas-frecuentes.mp4" data-poster="/media/videos/preguntas-frecuentes.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Color WOW · L'Oréal</p><p class="reel__type">Preguntas frecuentes</p>
         </li>
         <li class="reel reveal" data-cat="hogar" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/unboxing.mp4" poster="/media/videos/unboxing.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/unboxing.mp4" data-poster="/media/videos/unboxing.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand">Unboxing</p><p class="reel__type">Primera impresión</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/olivita.mp4" poster="/media/videos/olivita.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/olivita.mp4" data-poster="/media/videos/olivita.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Olivita</p><p class="reel__type">Crecimiento capilar</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/peinado.mp4" poster="/media/videos/peinado.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/peinado.mp4" data-poster="/media/videos/peinado.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand">Rutina de peinado</p><p class="reel__type">Tutorial</p>
         </li>
         <li class="reel reveal" data-cat="cabello tips" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/linea-loreal.mp4" poster="/media/videos/linea-loreal.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/linea-loreal.mp4" data-poster="/media/videos/linea-loreal.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">L'Oréal Professionnel</p><p class="reel__type">Línea de productos</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/olaplex.mp4" poster="/media/videos/olaplex.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/olaplex.mp4" data-poster="/media/videos/olaplex.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Olaplex · L'Oréal Pro</p><p class="reel__type">Recomendación</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/redken.mp4" poster="/media/videos/redken.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/redken.mp4" data-poster="/media/videos/redken.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand" translate="no">Redken</p><p class="reel__type">Demostración de producto</p>
         </li>
         <li class="reel reveal" data-cat="cabello" data-youtube="">
-          <div class="reel__phone"><video src="/media/videos/tienda.mp4" poster="/media/videos/tienda.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="reel__phone"><video src="/media/videos/tienda.mp4" data-poster="/media/videos/tienda.webp" muted loop playsinline preload="none"></video></div>
           <p class="reel__brand">Reseña en tienda</p><p class="reel__type">Cuidado capilar</p>
         </li>
       </ul>
@@ -284,27 +285,27 @@
       </div>
       <ul class="photo-grid reveal">
         <li class="photo-grid__a">
-          <img src="/media/fotos/ugc-cabello.webp?v=4" alt="Rogienny mostrando el aceite Kérastase Elixir Ultime" width="900" height="1200" loading="lazy" style="object-position: 50% 35%">
+          <img src="/media/fotos/ugc-cabello-450.webp" srcset="/media/fotos/ugc-cabello-450.webp 450w, /media/fotos/ugc-cabello.webp?v=4 900w" sizes="(max-width: 760px) 50vw, 30vw" alt="Rogienny mostrando el aceite Kérastase Elixir Ultime" width="900" height="1200" loading="lazy" style="object-position: 50% 35%">
           <span class="photos__cat">Cabello</span>
         </li>
         <li class="photo-grid__b">
-          <img src="/media/fotos/ugc-restaurantes.webp?v=3" alt="Rogienny brindando en un bar" width="900" height="1200" loading="lazy" style="object-position: 35% 62%">
+          <img src="/media/fotos/ugc-restaurantes-450.webp" srcset="/media/fotos/ugc-restaurantes-450.webp 450w, /media/fotos/ugc-restaurantes.webp?v=3 900w" sizes="(max-width: 760px) 50vw, 30vw" alt="Rogienny brindando en un bar" width="900" height="1200" loading="lazy" style="object-position: 35% 62%">
           <span class="photos__cat">Restaurantes</span>
         </li>
         <li class="photo-grid__c">
-          <img src="/media/fotos/ugc-moda.webp?v=3" alt="Rogienny posando con lentes de sol y pantalón de cuero" width="900" height="1200" loading="lazy" style="object-position: 45% 50%">
+          <img src="/media/fotos/ugc-moda-450.webp" srcset="/media/fotos/ugc-moda-450.webp 450w, /media/fotos/ugc-moda.webp?v=3 900w" sizes="(max-width: 760px) 50vw, 30vw" alt="Rogienny posando con lentes de sol y pantalón de cuero" width="900" height="1200" loading="lazy" style="object-position: 45% 50%">
           <span class="photos__cat">Moda</span>
         </li>
         <li class="photo-grid__d">
-          <img src="/media/fotos/ugc-lifestyle.webp?v=3" alt="Rogienny tomando café en un restaurante" width="900" height="1200" loading="lazy" style="object-position: 45% 42%">
+          <img src="/media/fotos/ugc-lifestyle-450.webp" srcset="/media/fotos/ugc-lifestyle-450.webp 450w, /media/fotos/ugc-lifestyle.webp?v=3 900w" sizes="(max-width: 760px) 50vw, 30vw" alt="Rogienny tomando café en un restaurante" width="900" height="1200" loading="lazy" style="object-position: 45% 42%">
           <span class="photos__cat">Cafeterías</span>
         </li>
         <li class="photo-grid__e">
-          <img src="/media/fotos/ugc-cerezos.webp?v=3" alt="Rogienny sonriendo bajo los cerezos de un café" width="900" height="1200" loading="lazy" style="object-position: 55% 55%">
+          <img src="/media/fotos/ugc-cerezos-450.webp" srcset="/media/fotos/ugc-cerezos-450.webp 450w, /media/fotos/ugc-cerezos.webp?v=3 900w" sizes="(max-width: 760px) 50vw, 30vw" alt="Rogienny sonriendo bajo los cerezos de un café" width="900" height="1200" loading="lazy" style="object-position: 55% 55%">
           <span class="photos__cat">Lifestyle</span>
         </li>
         <li class="photo-grid__f">
-          <img src="/media/fotos/ugc-experiencias.webp?v=3" alt="Rogienny junto a un auto clásico rojo en un restaurante" width="900" height="1200" loading="lazy" style="object-position: 72% 55%">
+          <img src="/media/fotos/ugc-experiencias-450.webp" srcset="/media/fotos/ugc-experiencias-450.webp 450w, /media/fotos/ugc-experiencias.webp?v=3 900w" sizes="(max-width: 760px) 50vw, 30vw" alt="Rogienny junto a un auto clásico rojo en un restaurante" width="900" height="1200" loading="lazy" style="object-position: 72% 55%">
           <span class="photos__cat">Experiencias</span>
         </li>
       </ul>
@@ -324,7 +325,7 @@
         <li class="pillar">
           <a class="pillar__link" href="#videos" data-cat="cabello">
             <figure class="pillar__photo">
-              <video src="/media/videos/kerastase-elixir.mp4" poster="/media/videos/kerastase-elixir.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+              <video src="/media/videos/kerastase-elixir.mp4" data-poster="/media/videos/kerastase-elixir.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="pillar__cta">Ver videos <span aria-hidden="true">→</span></span>
             </figure>
             <span class="pillar__num">01</span>
@@ -335,7 +336,7 @@
         <li class="pillar">
           <a class="pillar__link" href="#videos" data-cat="skincare">
             <figure class="pillar__photo">
-              <video src="/media/videos/la-roche-posay.mp4" poster="/media/videos/la-roche-posay.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+              <video src="/media/videos/la-roche-posay.mp4" data-poster="/media/videos/la-roche-posay.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="pillar__cta">Ver videos <span aria-hidden="true">→</span></span>
             </figure>
             <span class="pillar__num">02</span>
@@ -346,7 +347,7 @@
         <li class="pillar">
           <a class="pillar__link" href="#fotos">
             <figure class="pillar__photo">
-              <video src="/media/videos/viaje-paris-louvre.mp4" poster="/media/videos/viaje-paris-louvre.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+              <video src="/media/videos/viaje-paris-louvre.mp4" data-poster="/media/videos/viaje-paris-louvre.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="pillar__cta">Ver fotos <span aria-hidden="true">→</span></span>
             </figure>
             <span class="pillar__num">03</span>

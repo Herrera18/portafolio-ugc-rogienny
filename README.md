@@ -65,3 +65,13 @@ msedge --headless=new --hide-scrollbars --window-size=1200,630 --virtual-time-bu
 ## Si cambias una foto o video por otro con el mismo nombre
 
 Los navegadores guardan las fotos y videos por un día. Para que se vea el cambio enseguida, sube el número de versión en `index.html`, por ejemplo `hero.webp?v=2` → `hero.webp?v=3`.
+
+## Versiones livianas (velocidad en celular)
+
+Cada foto tiene una copia más chica y el navegador elige la que necesita (`srcset`):
+
+- Portada: `hero-480.webp`, `hero-720.webp`, `hero-1080.webp` y la original `hero.webp`.
+- Fotos UGC: `ugc-*-450.webp` junto a la original de 900 px. Sobre mí: `sobre-mi-450.webp`, `sobre-mi-600.webp` y la original.
+- Portadas de los videos: `media/videos/*.webp` (450 px), escritas como `data-poster`; `main.js` las pone cuando su sección se acerca a la pantalla.
+
+Si cambias una foto, vuelve a generar sus copias chicas con el mismo nombre (WebP, calidad ~78).
