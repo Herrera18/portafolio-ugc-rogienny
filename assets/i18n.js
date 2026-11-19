@@ -48,13 +48,9 @@ window.I18N_EN = {
   // Videos
   "Videos UGC": "UGC Videos",
   "Ver más en Instagram": "See more on Instagram",
-  "Reseña en tienda": "In-store review",
-  "Cuidado capilar": "Hair care",
   "Rutina capilar": "Hair routine",
-  "Coloración": "Hair color",
   "Todos": "All",
   "Lifestyle y unboxing": "Lifestyle & unboxing",
-  "Viaje a París": "Trip to Paris",
   "Tips y asesoría": "Tips & advice",
   "Orden de tu rutina": "Your routine, in order",
   "Tips de rutina capilar": "Hair routine tips",
@@ -74,10 +70,7 @@ window.I18N_EN = {
   "Brillo y acabado": "Shine & finish",
   "Crecimiento capilar": "Hair growth",
   "Rutina de peinado": "Styling routine",
-  "Resultado real": "Real results",
-  "Recomendación": "Recommendation",
   "Demostración de producto": "Product demo",
-  "Primera impresión": "First impression",
   "Skincare y maquillaje": "Skincare & makeup",
 
   // Fotos UGC
