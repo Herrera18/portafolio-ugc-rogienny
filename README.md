@@ -42,7 +42,7 @@ El texto de `index.html` está en español. Las traducciones al inglés están e
 
 El idioma se elige así: `?lang=en` o `?lang=es` en el enlace; si no, la última elección del visitante; si no, el idioma de su navegador. El botón ES/EN del menú lo cambia y lo recuerda.
 
-Enlaces directos para compartir: `https://rogienny-ugc.vercel.app/?lang=en` (marcas de EE.UU.) y `https://rogienny-ugc.vercel.app/?lang=es`.
+Enlaces directos para compartir: `https://rogienny.com/?lang=en` (marcas de EE.UU.) y `https://rogienny.com/?lang=es`.
 
 ## Fotos UGC
 
